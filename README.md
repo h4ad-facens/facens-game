@@ -9,11 +9,11 @@ Os autores deste projeto são:
 * Bruno
 
 ## Conteudo
-1. Camadas
-2. Minérios
-...2 Ligas metálicas
-3. Moeda
-4. Brocas
+- [Camadas](#camadas)
+- [Minérios](#minérios)
+	- [Ligas metálicas](#ligas-metálicas)
+- [Moeda](#moeda)
+- [Brocas](#brocas)
 
 ## Camadas
 Assim como no Motherload, este jogo terá suas camadas e elas ajudarão a separar e organizar os minérios.
