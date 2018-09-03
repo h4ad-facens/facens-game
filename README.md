@@ -14,6 +14,8 @@ Os autores deste projeto são:
 	- [Ligas metálicas](#ligas-metálicas)
 - [Moeda](#moeda)
 - [Brocas](#brocas)
+- [Construções](#contruções)
+- [Itens](#itens)
 
 ## Camadas
 Assim como no Motherload, este jogo terá suas camadas e elas ajudarão a separar e organizar os minérios.
@@ -23,7 +25,7 @@ Para este projeto, a camada máxima será 6666.
 A seguir, a tabela com todos os minérios que podem ser cavados.
 
 | Minério        | Preciosidade  | Camada    | Preço     |
-|:-------------- |:-------------:|:---------:|:---------:|
+|:--------------:|:-------------:|:---------:|:---------:|
 | Terra          | Nenhuma       | Todas     | F$ 0      |
 | Pedra          | Nenhuma       | > 500     | F$ 0      |
 | Carvão         | Baixa         | > 50      | A decidir |
@@ -61,7 +63,7 @@ Essas ligas serão melhores que ambos os minérios e possuirá um preço maior q
 A seguir, a tabela com todas as ligas:
 
 | Liga metálica  | Preciosidade  | Preço         | Formula               |
-|:-------------- |:-------------:|:-------------:|:---------------------:|
+|:--------------:|:-------------:|:-------------:|:---------------------:|
 | Bronze         | Média         | A decidir     | 3 Cobres + 1 Estanho  |
 | Aço            | Alta          | A decidir     | 1 Ferro + 1 Carvão    |
 
@@ -73,7 +75,7 @@ O jogador começa com a broca mais básica, a de madeira, e conforme o jogador f
 As brocas poderão ser de:
 
 | Material    | Propriedades  | Dureza     |
-|:----------- |:-------------:|:----------:|
+|:-----------:|:-------------:|:----------:|
 | Cobre       | Nenhuma       | A decidir  |
 | Bronze      | A decidir     | A decidir  |
 | Ferro       | A decidir     | A decidir  |
@@ -87,7 +89,23 @@ Haverá também brocas com os minérios super raros, e cada uma terá uma propri
 A seguir, as brocas super raras:
 
 | Material    | Propriedades  | Dureza     | Durabilidade |
-|:----------- |:-------------:|:----------:|:------------:|
+|:-----------:|:-------------:|:----------:|:------------:|
 | Headium     | Velocidade    | Super rara | 150 blocos   |
 | Ruzium      | A decidir     | A decidir  | A decidir    |
 | Brunium     | A decidir     | A decidir  | A decidir    |
+
+## Construções
+
+Havera alguns predios no qual o jogador poderá interagir, eles serão:
+
+- Posto de gasolina: Onde o jogador poderá reabastecer seu veiculo.
+- Mercado: Onde o jogador venderá os minérios e ligas, e compará itens.
+- Fornalha: Onde o jogador pode fundir minérios em ligas.
+
+## Itens
+
+A seguir, todos os itens usaveis pelo jogador:
+
+- Galão de gasolina: Usado para reabastecer a gasolina do robô.
+- Teleportador: Usado para se teleportar para a superficie.
+- C4: Usado para explodir uma pequena area.
