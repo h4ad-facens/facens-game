@@ -11,7 +11,7 @@ Os autores deste projeto são:
 ## Conteudo
 1. Camadas
 2. Minérios
-..2 Ligas metálicas
+...2 Ligas metálicas
 3. Moeda
 4. Brocas
 
