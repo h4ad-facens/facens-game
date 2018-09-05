@@ -17,12 +17,25 @@ Os autores deste projeto são:
 	- [Brocas](#brocas)
 	- [Motores](#motores)
 - [Moeda](#moeda)
-- [Construções](#contruções)
+- [Construções](#construções)
 - [Itens](#itens)
 
 ## Camadas
 Assim como no Motherload, este jogo terá suas camadas e elas ajudarão a separar e organizar os minérios.
-Para este projeto, a camada máxima será 6666.
+Para este projeto, a profundidade máxima será 6666.
+
+Haverão 8 camadas, e cada vez que você ultrapassa uma camada, a terra e as rochas irão ficar mais duras e consequentemente o jogador precisará fazer upgrades em sua broca.
+
+| Nome      | Profundidade | Broca miníma |
+|:---------:|:------------:|:------------:|
+| A decidir | 0~500        | Cobre        |
+| A decidir | 501~1500     | Bronze       |
+| A decidir | 1501~2500    | Ferro        |
+| A decidir | 2501~3500    | Tungstenio   |
+| A decidir | 3501~4500    | Titânio      |
+| A decidir | 4501~5500    | Rubi         |
+| A decidir | 5501~6200    | Diamante     |
+| A decidir | > 6201       | Jade         |
 
 ## Minérios
 A seguir, a tabela com todos os minérios que podem ser cavados.
@@ -30,10 +43,10 @@ A seguir, a tabela com todos os minérios que podem ser cavados.
 | Minério        | Preciosidade  | Camada    | Preço     | Peso      | Pontos    |
 |:--------------:|:-------------:|:---------:|:---------:|:---------:|:---------:|
 | Terra          | Nenhuma       | Todas     | F$ 0      | A decidir | A decidir |
-| Pedra          | Nenhuma       | > 500     | F$ 0      | A decidir | A decidir |
 | Carvão         | Baixa         | > 50      | A decidir | A decidir | A decidir |
 | Cobre          | Baixa         | > 100     | A decidir | A decidir | A decidir |
 | Estanho        | Baixa         | > 300     | A decidir | A decidir | A decidir |
+| Pedra          | Nenhuma       | > 500     | F$ 0      | A decidir | A decidir |
 | Aluminio       | Baixa         | > 500     | A decidir | A decidir | A decidir |
 | Ferro          | Média         | > 700     | A decidir | A decidir | A decidir |
 | Chumbo         | Média         | > 900     | A decidir | A decidir | A decidir |
@@ -63,12 +76,13 @@ A seguir, a tabela com todos os minérios que podem ser cavados.
 ### Ligas metálicas
 Será a possibilidade do jogador fundir dois minérios para obter uma liga.
 Essas ligas serão melhores que ambos os minérios e possuirá um preço maior que a soma dos dois também.
+
 A seguir, a tabela com todas as ligas:
 
 | Liga metálica  | Preciosidade  | Preço         | Formula               |
 |:--------------:|:-------------:|:-------------:|:---------------------:|
-| Bronze         | Média         | A decidir     | 3 Cobres + 1 Estanho  |
-| Aço            | Alta          | A decidir     | 1 Ferro + 1 Carvão    |
+| Bronze         | Média         | A decidir     | x3 Cobres + x1 Estanho  |
+| Aço            | Alta          | A decidir     | x1 Ferro + x1 Carvão    |
 
 ## Moeda
 A moeda do jogo será o Facen (F$).
@@ -78,30 +92,33 @@ A moeda do jogo será o Facen (F$).
 A seguir, serão as informações relacionadas ao robo.
 
 ### Brocas
-O jogador começa com a broca mais básica, a de madeira, e conforme o jogador for avançando ele poderá fazer upgrades em suas brocas.
-As brocas poderão ser de:
+O jogador começa com a broca mais básica, a de cobre, e conforme o jogador for avançando ele poderá fazer upgrades em suas brocas.
 
-| Material    | Propriedades  | Dureza     | Custo      |
-|:-----------:|:-------------:|:----------:|:----------:|
-| *Cobre*     | Nenhuma       | A decidir  | A decidir  |
-| Bronze      | A decidir     | A decidir  | A decidir  |
-| Ferro       | A decidir     | A decidir  | A decidir  |
-| Tungstenio  | A decidir     | A decidir  | A decidir  |
-| Titânio     | A decidir     | A decidir  | A decidir  |
-| Rubi        | A decidir     | A decidir  | A decidir  |
-| Diamante    | A decidir     | A decidir  | A decidir  |
-| Jade        | A decidir     | A decidir  | A decidir  |
+As brocas disponíveis para a compra serão:
+
+| Material    | Propriedades  | Perfuração | Custo      | Materiais p. criação |
+|:-----------:|:-------------:|:----------:|:----------:|:--------------------:|
+| *Cobre*     | Nenhuma       | 28 m/s     | Nenhum     | Nenhum               |
+| Bronze      | A decidir     | 40 m/s     | A decidir  | x20 bronze           |
+| Ferro       | A decidir     | 50 m/s     | A decidir  | x40 ferro            |
+| Tungstenio  | A decidir     | 60 m/s     | A decidir  | x40 tungstenio       |
+| Titânio     | A decidir     | 70 m/s     | A decidir  | x60 titânio          |
+| Rubi        | A decidir     | 80 m/s     | A decidir  | x60 rubi             |
+| Diamante    | A decidir     | 100 m/s    | A decidir  | x80 diamante         |
+| Jade        | A decidir     | 120 m/s    | A decidir  | x80 Jade             |
 
 Haverá também brocas com os minérios super raros, e cada uma terá uma propriedade diferente e uma durabilidade (coisa que as outras não terão).
+
 A seguir, as brocas super raras:
 
 | Material    | Propriedades  | Dureza     | Durabilidade |
 |:-----------:|:-------------:|:----------:|:------------:|
-| Headium     | Velocidade    | Super rara | 150 blocos   |
-| Ruzium      | A decidir     | A decidir  | A decidir    |
-| Brunium     | A decidir     | A decidir  | A decidir    |
+| Headium     | Velocidade    | Super rara | 250 blocos   |
+| Ruzium      | A decidir     | A decidir  | 250 blocos   |
+| Brunium     | A decidir     | A decidir  | 250 blocos   |
 
 > Broca de cobre será a broca padrão.
+> Brocas super raras mineram em qualquer camada.
 
 ### Motores
 
@@ -109,7 +126,7 @@ A seguir, os tipos de motor que serão possiveis de comprar.
 
 | Motor       | Cavalos       | Custo         |
 |:-----------:|:-------------:|:-------------:|
-| *A vapor*   | Nenhuma       | A decidir     |
+| *A vapor*   | Nenhuma       | Nenhum        |
 | Alcool      | A decidir     | A decidir     |
 | Gasolina    | A decidir     | A decidir     |
 | Eletrica    | A decidir     | A decidir     |
