@@ -1,6 +1,8 @@
 # Nome do projeto - Baseado no Motherload
 
-[Jogo original](https://www.kongregate.com/games/XGenStudios/motherload)
+
+[Jogo original](https://www.kongregate.com/games/XGenStudios/motherload) - [Wiki](http://xgenstudios.wikia.com/wiki/Motherload)
+---
 
 Nosso jogo será uma versão modificada do Motherload mas mantendo o espirito do jogo original.
 
@@ -16,7 +18,7 @@ Os autores deste projeto são:
 - [Robô](#robô)
 	- [Brocas](#brocas)
 	- [Motores](#motores)
-	- [Tanque de combustivel](#tanque-de-cobustivel)
+	- [Tanque de combustivel](#tanque-de-combustivel)
 	- [Armazenamento](#armazenamento)
 	- [Radiadores](#radiadores)
 - [Moeda](#moeda)
@@ -75,8 +77,11 @@ A seguir, a tabela com todos os minérios que podem ser cavados.
 | Brunium        | Super rara    | Aleatório | A decidir | 0,1 kg    | A decidir |
 
 > Os minérios Headium, Ruzium e Brunium são apenas invenções baseados nos nomes dos autores.
+
 > Cada minério ocupa um métro cúbico.
+
 > Cada métro cubico minerado, você obtem a quantidade em peso mostrado na tabela.
+
 > Quando você minera terra, o espaço que ela ocupa é 0,05 métros cúbicos.
 
 ### Ligas metálicas
@@ -124,6 +129,7 @@ A seguir, as brocas super raras:
 | Brunium     | A decidir     | A decidir  | 250 blocos   | A decidir  |
 
 > Broca de cobre será a broca padrão.
+
 > Brocas super raras mineram em qualquer camada.
 
 ### Motores
@@ -142,7 +148,9 @@ A seguir, os tipos de motor que serão possiveis de comprar.
 | Jade        | 750           | A decidir     |
 
 > Motor à vapor será o motor padrão.
+
 > Cavalos calculados ao multiplicar o peso do minério mais leve em uma camada pelo espaço de armazenamento do mesmo nível.
+
 > Cada cavalo de potência carrega 1 kg de minério.
 
 ### Tanque de combustivel
@@ -151,14 +159,14 @@ A seguir, os tipos de tanque de combustivel que o jogador pode obter para seu ro
 
 | Nome        | Capacidade    | Custo         |
 |:-----------:|:-------------:|:-------------:|
-| A decidir   | 15            | Nenhum        |
-| A decidir   | 25            | A decidir     |
-| A decidir   | 40            | A decidir     |
-| A decidir   | 60            | A decidir     |
-| A decidir   | 80            | A decidir     |
-| A decidir   | 100           | A decidir     |
-| A decidir   | 120           | A decidir      |
-| A decidir   | 150           | A decidir     |
+| *A decidir*   | 15 litros     | Nenhum        |
+| A decidir   | 25 litros     | A decidir     |
+| A decidir   | 40 litros     | A decidir     |
+| A decidir   | 60 litros     | A decidir     |
+| A decidir   | 80 litros     | A decidir     |
+| A decidir   | 100 litros    | A decidir     |
+| A decidir   | 120 litros    | A decidir      |
+| A decidir   | 150 litros    | A decidir     |
 
 ### Armazenamento
 A seguir, os tipos de armazenamento que o jogador pode obter para seu robô.
@@ -181,7 +189,7 @@ A seguir, os tipos de radiadores disponíveis para o jogador obter:
 
 | Nome        | Efetividade   | Custo         |
 |:-----------:|:-------------:|:-------------:|
-| A decidir   |  10%          | A decidir     |
+| *A decidir* |  10%          | A decidir     |
 | A decidir   |  25%          | A decidir     |
 | A decidir   |  35%          | A decidir     |
 | A decidir   |  45%          | A decidir     |
