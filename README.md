@@ -2,7 +2,7 @@
 
 [Jogo original](https://www.kongregate.com/games/XGenStudios/motherload)
 
-Nosso jogo será uma versão modificada do Motherload com algumas modificações mas mantendo o espirito do jogo original.
+Nosso jogo será uma versão modificada do Motherload mas mantendo o espirito do jogo original.
 
 Os autores deste projeto são:
 * [Vinícius Lourenço](https://github.com/H4ad)
@@ -16,6 +16,9 @@ Os autores deste projeto são:
 - [Robô](#robô)
 	- [Brocas](#brocas)
 	- [Motores](#motores)
+	- [Tanque de combustivel](#tanque-de-cobustivel)
+	- [Armazenamento](#armazenamento)
+	- [Radiadores](#radiadores)
 - [Moeda](#moeda)
 - [Construções](#construções)
 - [Itens](#itens)
@@ -35,43 +38,46 @@ Haverão 8 camadas, e cada vez que você ultrapassa uma camada, a terra e as roc
 | A decidir | 3501~4500    | Titânio      |
 | A decidir | 4501~5500    | Rubi         |
 | A decidir | 5501~6200    | Diamante     |
-| A decidir | > 6201       | Jade         |
+| A decidir | > 6200       | Jade         |
 
 ## Minérios
 A seguir, a tabela com todos os minérios que podem ser cavados.
 
 | Minério        | Preciosidade  | Camada    | Preço     | Peso      | Pontos    |
 |:--------------:|:-------------:|:---------:|:---------:|:---------:|:---------:|
-| Terra          | Nenhuma       | Todas     | F$ 0      | A decidir | A decidir |
-| Carvão         | Baixa         | > 50      | A decidir | A decidir | A decidir |
-| Cobre          | Baixa         | > 100     | A decidir | A decidir | A decidir |
-| Estanho        | Baixa         | > 300     | A decidir | A decidir | A decidir |
-| Pedra          | Nenhuma       | > 500     | F$ 0      | A decidir | A decidir |
-| Aluminio       | Baixa         | > 500     | A decidir | A decidir | A decidir |
-| Ferro          | Média         | > 700     | A decidir | A decidir | A decidir |
-| Chumbo         | Média         | > 900     | A decidir | A decidir | A decidir |
-| Pirita         | Muito Baixa   | > 1200    | A decidir | A decidir | A decidir |
-| Tungstenio     | Média         | > 1600    | A decidir | A decidir | A decidir |
-| Prata          | Média         | > 2000    | A decidir | A decidir | A decidir |
-| Ouro           | Média         | > 2400    | A decidir | A decidir | A decidir |
-| Ametista       | Alta          | > 2800    | A decidir | A decidir | A decidir |
-| Titânio        | Alta          | > 3200    | A decidir | A decidir | A decidir |
-| Lava           | Nenhuma       | > 3200    | F$ 0      | A decidir | A decidir |
-| Lapis-Lazuli   | Alta          | > 3600    | A decidir | A decidir | A decidir |
-| Àgata-Azul     | Alta          | > 4000    | A decidir | A decidir | A decidir |
-| Bolsão de gás  | Nenhuma       | > 4000    | F$ 0      | A decidir | A decidir |
-| Rubi           | Alta          | > 4400    | A decidir | A decidir | A decidir |
-| Quartzo        | Rara          | > 4800    | A decidir | A decidir | A decidir |
-| Esmeralda      | Rara          | > 5200    | A decidir | A decidir | A decidir |
-| Diamante       | Rara          | > 5600    | A decidir | A decidir | A decidir |
-| Obsidian       | Nenhuma       | > 6000    | F$ 0      | A decidir | A decidir |
-| Jade           | Rara          | > 6000    | A decidir | A decidir | A decidir |
-| Uránio         | Rara          | > 6400    | A decidir | A decidir | A decidir |
-| Headium        | Super rara    | Aleatório | A decidir | A decidir | A decidir |
-| Ruzium         | Super rara    | Aleatório | A decidir | A decidir | A decidir |
-| Brunium        | Super rara    | Aleatório | A decidir | A decidir | A decidir |
+| Terra          | Nenhuma       | Todas     | F$ 0      | 0,1 kg    | 0         |
+| Carvão         | Baixa         | > 50      | A decidir | 1,5 kg    | A decidir |
+| Cobre          | Baixa         | > 100     | A decidir | 2,6 kg    | A decidir |
+| Estanho        | Baixa         | > 300     | A decidir | 2,2 kg    | A decidir |
+| Pedra          | Nenhuma       | > 500     | F$ 0      | 3,0 kg    | A decidir |
+| Aluminio       | Baixa         | > 500     | A decidir | 2,4 kg    | A decidir |
+| Ferro          | Média         | > 700     | A decidir | 2,6 kg    | A decidir |
+| Chumbo         | Média         | > 900     | A decidir | 3,0 kg    | A decidir |
+| Pirita         | Muito Baixa   | > 1200    | A decidir | 0,3 kg    | A decidir |
+| Tungstenio     | Média         | > 1600    | A decidir | 3,2 kg    | A decidir |
+| Prata          | Média         | > 2000    | A decidir | 2,2 kg    | A decidir |
+| Ouro           | Média         | > 2400    | A decidir | 3,5 kg    | A decidir |
+| Ametista       | Alta          | > 2800    | A decidir | 2,6 kg    | A decidir |
+| Titânio        | Alta          | > 3200    | A decidir | 4,5 kg    | A decidir |
+| Lava           | Nenhuma       | > 3200    | F$ 0      | 0 kg      | A decidir |
+| Lapis-Lazuli   | Alta          | > 3600    | A decidir | 3,0 kg    | A decidir |
+| Àgata-Azul     | Alta          | > 4000    | A decidir | 2,6 kg    | A decidir |
+| Bolsão de gás  | Nenhuma       | > 4000    | F$ 0      | 0 kg      | A decidir |
+| Rubi           | Alta          | > 4400    | A decidir | 4,1 kg    | A decidir |
+| Quartzo        | Rara          | > 4800    | A decidir | 2,6 kg    | A decidir |
+| Esmeralda      | Rara          | > 5200    | A decidir | 2,9 kg    | A decidir |
+| Diamante       | Rara          | > 5600    | A decidir | 3,5 kg    | A decidir |
+| Obsidiana      | Nenhuma       | > 6000    | F$ 0      | 8,0 kg    | A decidir |
+| Jade           | Rara          | > 6000    | A decidir | 3,3 kg    | A decidir |
+| Uránio         | Rara          | > 6400    | A decidir | 11,3 kg   | A decidir |
+| Headium        | Super rara    | Aleatório | A decidir | 0,1 kg    | A decidir |
+| Ruzium         | Super rara    | Aleatório | A decidir | 0,1 kg    | A decidir |
+| Brunium        | Super rara    | Aleatório | A decidir | 0,1 kg    | A decidir |
 
 > Os minérios Headium, Ruzium e Brunium são apenas invenções baseados nos nomes dos autores.
+> Cada minério ocupa um métro cúbico.
+> Cada métro cubico minerado, você obtem a quantidade em peso mostrado na tabela.
+> Quando você minera terra, o espaço que ela ocupa é 0,05 métros cúbicos.
 
 ### Ligas metálicas
 Será a possibilidade do jogador fundir dois minérios para obter uma liga.
@@ -111,11 +117,11 @@ Haverá também brocas com os minérios super raros, e cada uma terá uma propri
 
 A seguir, as brocas super raras:
 
-| Material    | Propriedades  | Dureza     | Durabilidade |
-|:-----------:|:-------------:|:----------:|:------------:|
-| Headium     | Velocidade    | Super rara | 250 blocos   |
-| Ruzium      | A decidir     | A decidir  | 250 blocos   |
-| Brunium     | A decidir     | A decidir  | 250 blocos   |
+| Material    | Propriedades  | Dureza     | Durabilidade | Perfuração |
+|:-----------:|:-------------:|:----------:|:------------:|:----------:|
+| Headium     | Velocidade    | Super rara | 250 blocos   | 160 m/s    |
+| Ruzium      | A decidir     | A decidir  | 250 blocos   | A decidir  |
+| Brunium     | A decidir     | A decidir  | 250 blocos   | A decidir  |
 
 > Broca de cobre será a broca padrão.
 > Brocas super raras mineram em qualquer camada.
@@ -126,23 +132,70 @@ A seguir, os tipos de motor que serão possiveis de comprar.
 
 | Motor       | Cavalos       | Custo         |
 |:-----------:|:-------------:|:-------------:|
-| *A vapor*   | Nenhuma       | Nenhum        |
-| Alcool      | A decidir     | A decidir     |
-| Gasolina    | A decidir     | A decidir     |
-| Eletrica    | A decidir     | A decidir     |
-| Titânio     | A decidir     | A decidir     |
-| Rubi        | A decidir     | A decidir     |
-| Diamante    | A decidir     | A decidir     |
-| Jade        | A decidir     | A decidir     |
+| *A vapor*   | 45            | Nenhum        |
+| Alcool      | 108           | A decidir     |
+| Gasolina    | 143           | A decidir     |
+| Eletrica    | 234           | A decidir     |
+| Titânio     | 286           | A decidir     |
+| Rubi        | 338           | A decidir     |
+| Diamante    | 462           | A decidir     |
+| Jade        | 750           | A decidir     |
 
 > Motor à vapor será o motor padrão.
+> Cavalos calculados ao multiplicar o peso do minério mais leve em uma camada pelo espaço de armazenamento do mesmo nível.
+> Cada cavalo de potência carrega 1 kg de minério.
+
+### Tanque de combustivel
+
+A seguir, os tipos de tanque de combustivel que o jogador pode obter para seu robô:
+
+| Nome        | Capacidade    | Custo         |
+|:-----------:|:-------------:|:-------------:|
+| A decidir   | 15            | Nenhum        |
+| A decidir   | 25            | A decidir     |
+| A decidir   | 40            | A decidir     |
+| A decidir   | 60            | A decidir     |
+| A decidir   | 80            | A decidir     |
+| A decidir   | 100           | A decidir     |
+| A decidir   | 120           | A decidir      |
+| A decidir   | 150           | A decidir     |
+
+### Armazenamento
+A seguir, os tipos de armazenamento que o jogador pode obter para seu robô.
+
+| Nome        | Capacidade    | Custo         |
+|:-----------:|:-------------:|:-------------:|
+| *Básico*    | 30 m^3        | Nenhum        |
+| Pequeno     | 45 m^3        | A decidir     |
+| Médio       | 65 m^3        | A decidir     |
+| Grande      | 90 m^3        | A decidir     |
+| Gigante     | 110 m^3       | A decidir     |
+| Enorme      | 130 m^3       | A decidir     |
+| Épico       | 140 m^3       | A decidir     |
+| Lendário    | 150 m^3       | A decidir     |
+
+### Radiadores
+Um radiador diminui a quantidade de dano que o robô recebe ao perfurar lava, bolsão de gás, etc.
+
+A seguir, os tipos de radiadores disponíveis para o jogador obter:
+
+| Nome        | Efetividade   | Custo         |
+|:-----------:|:-------------:|:-------------:|
+| A decidir   |  10%          | A decidir     |
+| A decidir   |  25%          | A decidir     |
+| A decidir   |  35%          | A decidir     |
+| A decidir   |  45%          | A decidir     |
+| A decidir   |  55%          | A decidir     |
+| A decidir   |  70%          | A decidir     |
+| A decidir   |  85%          | A decidir     |
+| A decidir   |  95%          | A decidir     |
 
 ## Construções
 
 Havera alguns predios no qual o jogador poderá interagir, eles serão:
 
 - Posto de gasolina: Onde o jogador poderá reabastecer seu veiculo.
-- Mercado: Onde o jogador venderá os minérios e ligas, e compará itens.
+- Mercado: Onde o jogador venderá os minérios e ligas, e comprará itens.
 - Fornalha: Onde o jogador pode fundir minérios em ligas.
 
 ## Itens
