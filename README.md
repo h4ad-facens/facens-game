@@ -207,6 +207,15 @@ Havera alguns predios no qual o jogador poderá interagir, eles serão:
 - Ferreiro: Onde o jogador pode fundir minérios em ligas.
 - Mecânico: Onde o jogador pode consertar o robô.
 
+### Posto de gasolina
+
+No posto, haverá seis opções de compra e um extra para completar o tanque.
+Você poderá comprar gasolina em 5, 10, 15, 25, 50, 100 litros.
+
+### Mercado
+
+Todos os itens listados na tabela de minérios poderão ser vendidos e todas as categorias de robô poderam ser compradas.
+
 ## Itens
 
 A seguir, todos os itens usaveis pelo jogador:
