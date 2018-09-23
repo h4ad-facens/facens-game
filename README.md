@@ -159,13 +159,13 @@ A seguir, os tipos de tanque de combustivel que o jogador pode obter para seu ro
 
 | Nome        | Capacidade    | Custo         |
 |:-----------:|:-------------:|:-------------:|
-| *A decidir*   | 15 litros     | Nenhum        |
+| *A decidir* | 15 litros     | Nenhum        |
 | A decidir   | 25 litros     | A decidir     |
 | A decidir   | 40 litros     | A decidir     |
 | A decidir   | 60 litros     | A decidir     |
 | A decidir   | 80 litros     | A decidir     |
 | A decidir   | 100 litros    | A decidir     |
-| A decidir   | 120 litros    | A decidir      |
+| A decidir   | 120 litros    | A decidir     |
 | A decidir   | 150 litros    | A decidir     |
 
 ### Armazenamento
@@ -204,7 +204,8 @@ Havera alguns predios no qual o jogador poderá interagir, eles serão:
 
 - Posto de gasolina: Onde o jogador poderá reabastecer seu veiculo.
 - Mercado: Onde o jogador venderá os minérios e ligas, e comprará itens.
-- Fornalha: Onde o jogador pode fundir minérios em ligas.
+- Ferreiro: Onde o jogador pode fundir minérios em ligas.
+- Mecânico: Onde o jogador pode consertar o robô.
 
 ## Itens
 
@@ -213,3 +214,4 @@ A seguir, todos os itens usaveis pelo jogador:
 - Galão de gasolina: Usado para reabastecer a gasolina do robô.
 - Teleportador: Usado para se teleportar para a superficie.
 - C4: Usado para explodir uma pequena area.
+- TNT - Usado para explodir uma grande area.
