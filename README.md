@@ -216,6 +216,14 @@ Você poderá comprar gasolina em 5, 10, 15, 25, 50, 100 litros.
 
 Todos os itens listados na tabela de minérios poderão ser vendidos e todas as categorias de robô poderam ser compradas.
 
+### Ferreiro
+
+Lugar onde ligas poderão ser forjadas, e quem sabe no futuro, adicionar para fazer upgrades nos equipamentos.
+
+### Mecânico
+
+Lugar onde o jogador poderá recuperar seu robô, restaurando em 10%, 20%, 40%, 50%, 80% e 100%.
+
 ## Itens
 
 A seguir, todos os itens usaveis pelo jogador:
