@@ -1,0 +1,226 @@
+[
+  {
+    "Name": "Terra",
+    "Rarity": 0,
+    "Price": 0,
+    "Weight": 0.1,
+    "Points": 0,
+    "OreType": -1
+  },
+  {
+    "Name": "Carvão",
+    "Rarity": 1,
+    "Price": 0, // A decidir
+    "Weight": 1.5,
+    "Points": 0, // A decidir
+    "OreType": 0
+  },
+  {
+    "Name": "Cobre",
+    "Rarity": 1,
+    "Price": 0, // A decidir
+    "Weight": 2.6,
+    "Points": 0, // A decidir
+    "OreType": 1
+  },
+  {
+    "Name": "Estanho",
+    "Rarity": 1,
+    "Price": 0, // A decidir
+    "Weight": 2.2,
+    "Points": 0, // A decidir
+    "OreType": 2
+  },
+  {
+    "Name": "Pedra",
+    "Rarity": 0.1,
+    "Price": 0,
+    "Weight": 3.0,
+    "Points": 0,
+    "OreType": 3
+  },
+  {
+    "Name": "Alumínio",
+    "Rarity": 1,
+    "Price": 0, // A decidir
+    "Weight": 2.4,
+    "Points": 0, // A decidir
+    "OreType": 4
+  },
+  {
+    "Name": "Ferro",
+    "Rarity": 2,
+    "Price": 0, // A decidir
+    "Weight": 2.6,
+    "Points": 0, // A decidir
+    "OreType": 5
+  },
+  {
+    "Name": "Chumbo",
+    "Rarity": 2,
+    "Price": 0, // A decidir
+    "Weight": 3.0,
+    "Points": 0, // A decidir
+    "OreType": 6
+  },
+  {
+    "Name": "Pirita",
+    "Rarity": 1,
+    "Price": 0, // A decidir
+    "Weight": 0.3,
+    "Points": 0, // A decidir
+    "OreType": 7
+  },
+  {
+    "Name": "Tungstenio",
+    "Rarity": 2,
+    "Price": 0, // A decidir
+    "Weight": 3.2,
+    "Points": 0, // A decidir
+    "OreType": 8
+  },
+  {
+    "Name": "Prata",
+    "Rarity": 2,
+    "Price": 0, // A decidir
+    "Weight": 2.2,
+    "Points": 0, // A decidir
+    "OreType": 9
+  },
+  {
+    "Name": "Ouro",
+    "Rarity": 1,
+    "Price": 0, // A decidir
+    "Weight": 3.5,
+    "Points": 0, // A decidir
+    "OreType": 10
+  },
+  {
+    "Name": "Ametista",
+    "Rarity": "Alta",
+    "Price": 0, // A decidir
+    "Weight": 2.6,
+    "Points": 0, // A decidir
+    "OreType": 11
+  },
+  {
+    "Name": "Titânio",
+    "Rarity": "Alta",
+    "Price": 0, // A decidir
+    "Weight": 4.5,
+    "Points": 0, // A decidir
+    "OreType": 12
+  },
+  {
+    "Name": "Lava",
+    "Rarity": 0,
+    "Price": 0,
+    "Weight": 0,
+    "Points": 0,
+    "OreType": 13
+  },
+  {
+    "Name": "Lapis-Lázuli",
+    "Rarity": "Alta",
+    "Price": 0, // A decidir
+    "Weight": 3.0,
+    "Points": 0, // A decidir
+    "OreType": 14
+  },
+  {
+    "Name": "Àgata-Azul",
+    "Rarity": "Alta",
+    "Price": 0, // A decidir
+    "Weight": 2.6,
+    "Points": 0, // A decidir
+    "OreType": 15
+  },
+  {
+    "Name": "Bolsão de gás",
+    "Rarity": 0,
+    "Price": 0,
+    "Weight": 0,
+    "Points": 0,
+    "OreType": 16
+  },
+  {
+    "Name": "Rubi",
+    "Rarity": "Alta",
+    "Price": 0, // A decidir
+    "Weight": 4.1,
+    "Points": 0, // A decidir
+    "OreType": 17
+  },
+  {
+    "Name": "Quartzo",
+    "Rarity": 3,
+    "Price": 0, // A decidir
+    "Weight": 2.6,
+    "Points": 0, // A decidir
+    "OreType": 18
+  },
+  {
+    "Name": "Esmeralda",
+    "Rarity": 3,
+    "Price": 0, // A decidir
+    "Weight": 2.9,
+    "Points": 0, // A decidir
+    "OreType": 19
+  },
+  {
+    "Name": "Diamante",
+    "Rarity": 3,
+    "Price": 0, // A decidir
+    "Weight": 3.5,
+    "Points": 0, // A decidir
+    "OreType": 20
+  },
+  {
+    "Name": "Obsidiana",
+    "Rarity": 0,
+    "Price": 0, // A decidir
+    "Weight": 8.0,
+    "Points": 0, // A decidir
+    "OreType": 21
+  },
+  {
+    "Name": "Jade",
+    "Rarity": 3,
+    "Price": 0, // A decidir
+    "Weight": 3.3,
+    "Points": 0, // A decidir
+    "OreType": 22
+  },
+  {
+    "Name": "Uránio",
+    "Rarity": 3,
+    "Price": 0, // A decidir
+    "Weight": 11.3,
+    "Points": 0, // A decidir
+    "OreType": 23
+  },
+  {
+    "Name": "Headium",
+    "Rarity": 4,
+    "Price": 0, // A decidir
+    "Weight": 0.1,
+    "Points": 0, // A decidir
+    "OreType": 24
+  },
+  {
+    "Name": "Ruzium",
+    "Rarity": 4,
+    "Price": 0, // A decidir
+    "Weight": 0.1,
+    "Points": 0, // A decidir
+    "OreType": 25
+  },
+  {
+    "Name": "Brunium",
+    "Rarity": 4,
+    "Price": 0, // A decidir
+    "Weight": 0.1,
+    "Points": 0, // A decidir
+    "OreType": 26
+  }
+]
