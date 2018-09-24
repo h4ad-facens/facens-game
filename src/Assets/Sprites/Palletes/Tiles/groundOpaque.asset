@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a73fb78b291712548ba83165272ada1e, type: 3}
   m_Name: groundOpaque
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300052, guid: 374591bdb778c3b41a397471c1be335c, type: 3}
+  m_Sprite: {fileID: 21300070, guid: 374591bdb778c3b41a397471c1be335c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -33,5 +33,25 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
   m_ColliderType: 1
-  groundSprites: []
-  preview: {fileID: 21300052, guid: 374591bdb778c3b41a397471c1be335c, type: 3}
+  GroundSprites:
+  - {fileID: 21300050, guid: 374591bdb778c3b41a397471c1be335c, type: 3}
+  - {fileID: 21300052, guid: 374591bdb778c3b41a397471c1be335c, type: 3}
+  - {fileID: 21300054, guid: 374591bdb778c3b41a397471c1be335c, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300056, guid: 374591bdb778c3b41a397471c1be335c, type: 3}
+  - {fileID: 21300058, guid: 374591bdb778c3b41a397471c1be335c, type: 3}
+  - {fileID: 21300076, guid: 374591bdb778c3b41a397471c1be335c, type: 3}
+  - {fileID: 21300092, guid: 374591bdb778c3b41a397471c1be335c, type: 3}
+  - {fileID: 21300068, guid: 374591bdb778c3b41a397471c1be335c, type: 3}
+  - {fileID: 21300070, guid: 374591bdb778c3b41a397471c1be335c, type: 3}
+  - {fileID: 21300072, guid: 374591bdb778c3b41a397471c1be335c, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300074, guid: 374591bdb778c3b41a397471c1be335c, type: 3}
+  - {fileID: 21300086, guid: 374591bdb778c3b41a397471c1be335c, type: 3}
+  - {fileID: 21300088, guid: 374591bdb778c3b41a397471c1be335c, type: 3}
+  - {fileID: 21300090, guid: 374591bdb778c3b41a397471c1be335c, type: 3}
+  - {fileID: 21300094, guid: 374591bdb778c3b41a397471c1be335c, type: 3}
+  - {fileID: 0}
+  OreSprites: []
+  Preview: {fileID: 21300070, guid: 374591bdb778c3b41a397471c1be335c, type: 3}
+  Type: -1
