@@ -21,7 +21,7 @@ namespace Motherload.Core.Tiles
         /// Asset base para adicionar minérios.
         /// </summary>
         [SerializeField]
-        private GroundTile OreBlock;
+        private RuleTile OreBlock;
 
         /// <summary>
         /// Tilemap para adicionar os minérios.
@@ -47,18 +47,15 @@ namespace Motherload.Core.Tiles
             watch.Stop();
 
             UnityEngine.Debug.Log($"Levou {watch.ElapsedMilliseconds} milisegundos para carregar o mapa.");
-            watch.Restart();
 
+            watch.Start();
             var positions = new List<Vector3Int>();
-            var blocks = new List<GroundTile>();
+            var blocks = new List<Tile>();
             
             foreach (var tile in ListTiles)
             {
                 positions.Add(new Vector3Int(tile.X, tile.Y, 0));
-
-                OreBlock.Type = OresTypes.COAL;
-
-                blocks.Add(OreBlock);
+                
 
                 if (tile.Y < -100)
                     break;

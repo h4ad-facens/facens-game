@@ -1,4 +1,5 @@
 ﻿using Motherload.Core.Enums;
+using System.Collections.Generic;
 
 namespace Motherload.Core.Models
 {

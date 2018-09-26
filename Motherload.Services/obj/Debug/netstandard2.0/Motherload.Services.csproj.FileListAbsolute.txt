@@ -1,0 +1,9 @@
+C:\Users\vinic\Documents\Projects\facens-game\Motherload.Services\bin\Debug\netstandard2.0\Motherload.Services.deps.json
+C:\Users\vinic\Documents\Projects\facens-game\Motherload.Services\bin\Debug\netstandard2.0\Motherload.Services.dll
+C:\Users\vinic\Documents\Projects\facens-game\Motherload.Services\bin\Debug\netstandard2.0\Motherload.Services.pdb
+C:\Users\vinic\Documents\Projects\facens-game\Motherload.Services\obj\Debug\netstandard2.0\Motherload.Services.csprojAssemblyReference.cache
+C:\Users\vinic\Documents\Projects\facens-game\Motherload.Services\obj\Debug\netstandard2.0\Motherload.Services.csproj.CoreCompileInputs.cache
+C:\Users\vinic\Documents\Projects\facens-game\Motherload.Services\obj\Debug\netstandard2.0\Motherload.Services.AssemblyInfoInputs.cache
+C:\Users\vinic\Documents\Projects\facens-game\Motherload.Services\obj\Debug\netstandard2.0\Motherload.Services.AssemblyInfo.cs
+C:\Users\vinic\Documents\Projects\facens-game\Motherload.Services\obj\Debug\netstandard2.0\Motherload.Services.dll
+C:\Users\vinic\Documents\Projects\facens-game\Motherload.Services\obj\Debug\netstandard2.0\Motherload.Services.pdb

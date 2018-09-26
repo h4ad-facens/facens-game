@@ -20,9 +20,7 @@ namespace Motherload.Core.Helpers
         {
             try
             {
-                var jsonFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), file);
-
-                File.WriteAllText(jsonFilePath, JsonConvert.SerializeObject(value, Formatting.None));
+                File.WriteAllText(file, JsonConvert.SerializeObject(value, Formatting.None));
 
                 return true;
             }
@@ -43,14 +41,12 @@ namespace Motherload.Core.Helpers
         {
             try
             {
-                var jsonFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), file);
-
-                return JsonConvert.DeserializeObject<T>(File.ReadAllText(jsonFilePath));
+                return JsonConvert.DeserializeObject<T>(File.ReadAllText(file));
             }
             catch (Exception e)
             {
                 Debug.Log(e.Message);
-                throw;
+                throw e;
             }
         }
     }

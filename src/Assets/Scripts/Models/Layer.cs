@@ -1,4 +1,5 @@
 ﻿using Motherload.Core.Enums;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace Motherload.Core.Models
@@ -22,7 +23,7 @@ namespace Motherload.Core.Models
         /// Altura máxima
         /// </summary>
         public int MaxHeight { get; set; }
-    
+
         /// <summary>
         /// Broca mínima para se minerar na camada
         /// </summary>
@@ -36,7 +37,13 @@ namespace Motherload.Core.Models
         /// <summary>
         /// Caminho para o arquivo de tiles desta camada
         /// </summary>
-        public string TilesPath { get; set; }
+        public string Filename { get; set; }
+
+        /// <summary>
+        /// Pisos que está camada possui
+        /// </summary>
+        [JsonIgnore]
+        public List<LayerTiles> LayerTiles { get; set; }
 
     }
 }
