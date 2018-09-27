@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Motherload.Services.Interfaces
+namespace Motherload.Interfaces
 {
     /// <summary>
     /// Handles anything to do with Tasks

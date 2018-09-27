@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Motherload.Services.Interfaces
+namespace Motherload.Interfaces
 {
     /// <summary>
     /// Handles reading/writing and querying the file system

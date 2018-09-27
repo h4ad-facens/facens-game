@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Motherload.Services.Helpers
+namespace Motherload.Helpers
 {
     /// <summary>
     /// Adds the ability to safely await on tasks to be complete that need limited access

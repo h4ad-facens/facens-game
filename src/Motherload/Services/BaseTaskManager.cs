@@ -1,4 +1,4 @@
-﻿using Motherload.Services.Interfaces;
+﻿using Motherload.Interfaces;
 using System;
 using System.Runtime.CompilerServices;
 using System.Threading;
