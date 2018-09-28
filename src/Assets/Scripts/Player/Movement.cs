@@ -10,12 +10,32 @@ namespace Motherload.Core.Player
         /// <summary>
         /// Força do Jetpack
         /// </summary>
-        public float jetpackForce = 30.0f;
+        public float JetpackForce = 25.0f;
         
         /// <summary>
         /// Velocidade do jogador
         /// </summary>
-        public float Speed = 30.0f;
+        public float Speed = 15.0f;
+
+        /// <summary>
+        /// Velocidade máxima do jogador
+        /// </summary>
+        public float MaxSpeed = 30f;
+
+        /// <summary>
+        /// Altitude máxima que o jogador pode chegar
+        /// </summary>
+        public int MaxHeight = 30;
+
+        /// <summary>
+        /// Posição em X máxima no sentido esquerdo em que o jogador pode se mover
+        /// </summary>
+        public int MaxWidthLeft = -32;
+        
+        /// <summary>
+        /// Posição em X máxima no sentido direito em que o jogador pode se mover
+        /// </summary>
+        public int MaxWidthRight = 64;
 
         /// <summary>
         /// O jogador
@@ -35,15 +55,35 @@ namespace Motherload.Core.Player
         /// </summary>
         void FixedUpdate()
         {
+            if (Player.position.y >= MaxHeight)
+            {
+                Player.velocity = Vector2.zero;
+                return;
+            }
+
+            if(Player.position.x >= MaxWidthRight)
+            {
+                Player.velocity = Vector2.zero;
+                Player.AddForce(new Vector2(-JetpackForce, 0));
+                return;
+            }
+
+            if (Player.position.x <= MaxWidthLeft)
+            {
+                Player.velocity = Vector2.zero;
+                Player.AddForce(new Vector2(JetpackForce, 0));
+                return;
+            }
+            
             if (Input.GetKey(KeyCode.W))
-                Player.AddForce(new Vector2(0, jetpackForce));
-
-
-            //Use the two store floats to create a new Vector2 variable movement.
-            Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), 0);
+                Player.AddForce(new Vector2(0, JetpackForce));
 
             //Call the AddForce function of our Rigidbody2D rb2d supplying movement multiplied by speed to move our player.
-            Player.AddForce(movement * Speed);
+            Player.AddForce(new Vector2(Input.GetAxis("Horizontal"), 0) * Speed);
+
+            if (Player.velocity.magnitude > MaxSpeed)
+                Player.velocity = Player.velocity.normalized * MaxSpeed;
+            
         }
 
     }

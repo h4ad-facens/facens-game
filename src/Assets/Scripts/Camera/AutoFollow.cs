@@ -10,27 +10,24 @@ namespace Motherload.Core.Camera
         /// <summary>
         /// O jogador.
         /// </summary>
-        public GameObject player;
+        public Transform target;
 
         /// <summary>
         /// Distancia entre o jogador e a camera.
         /// </summary>
-        private Vector3 offset;
-
+        public Vector3 offset;
+        
         /// <summary>
-        /// Inicialização
+        /// Velocidade de smooth
         /// </summary>
-        void Start()
-        {
-            offset = transform.position - player.transform.position;
-        }
+        public float smoothSpeed = 0.125f;
 
         /// <summary>
         /// É chamado a cada atualização de frame.
         /// </summary>
-        void LateUpdate()
+        void FixedUpdate()
         {
-            transform.position = player.transform.position + offset;
+            transform.position = Vector3.Lerp(transform.position, target.position + offset, smoothSpeed);
         }
     }
 }

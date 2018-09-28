@@ -64,19 +64,18 @@ namespace Motherload.Models
         public string OresFilePath { get; set; }
         
         /// <summary>
-        /// Altura máxima que ele começará a carregar e salvar o mundo.
-        /// Tudo acima dessa altura será ignorado.
+        /// Altura máxima em que será gerado o mundo
         /// </summary>
-        public int MaxWorldHeight = -7;
+        public int MaxSpawnWorldHeight { get; set; }
 
         /// <summary>
         /// Posição mínima em X que será gerado o mundo.
         /// </summary>
-        public int MinWorldX = -14;
+        public int MinSpawnWorldX = -52;
 
         /// <summary>
         /// Posição máxima em X que será gerado o mundo.
         /// </summary>
-        public int MaxWorldX = 19;
+        public int MaxSpawnWorldX = 84;
     }
 }

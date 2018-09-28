@@ -89,7 +89,7 @@ namespace Motherload.Services
 
             foreach (var layer in Layers)
             {
-                if (layer.MinHeight > Configurations.MaxWorldHeight)
+                if (layer.MinHeight > Configurations.MaxSpawnWorldHeight)
                     continue;
 
                 var watch = new Stopwatch();
@@ -98,7 +98,7 @@ namespace Motherload.Services
 
                 for (var y = layer.MinHeight; y >= layer.MaxHeight; y--)
                 {
-                    for (var x = Configurations.MinWorldX; x <= Configurations.MaxWorldX; x++)
+                    for (var x = Configurations.MinSpawnWorldX; x <= Configurations.MaxSpawnWorldX; x++)
                     {
                         listTiles.Add(new LayerTiles()
                         {
