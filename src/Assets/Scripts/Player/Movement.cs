@@ -25,7 +25,7 @@ namespace Motherload.Core.Player
         /// <summary>
         /// Altitude máxima que o jogador pode chegar
         /// </summary>
-        public int MaxHeight = 30;
+        public int MaxHeight = 60;
 
         /// <summary>
         /// Posição em X máxima no sentido esquerdo em que o jogador pode se mover
