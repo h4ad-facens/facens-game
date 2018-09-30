@@ -24,11 +24,7 @@ public class WorldRender : MonoBehaviour
     /// O Tilemap em que será renderizado o mundo
     /// </summary>
     public Tilemap RenderTilemap;
-
-    private int[][] ChunksLoaded = new int[25][];
-
-    private List<Chunk> Chunks = new List<Chunk>();
-
+    
     /// <summary>
     /// Tile do minério
     /// </summary>
@@ -38,17 +34,20 @@ public class WorldRender : MonoBehaviour
     /// <summary>
     /// Serviço principal do jogo
     /// </summary>
-    public IGameService GameService;
+    private IGameService m_GM;
 
-    public int[] LastUpdate { get; set; } = new int[] { 0, 0 };
+    /// <summary>
+    /// Indica qual foi a ultima posição do jogador em que foi renderizado o mundos
+    /// </summary>
+    private int[] LastUpdate { get; set; } = new int[] { 0, 0 };
 
-        /// <summary>
+    /// <summary>
     /// Executado quando o script é carregado pela primeira vez.
     /// </summary>
     public void Start()
     {
         PlayerPrefs.DeleteAll();
-        GameService = DependencyInjector.Retrieve<IGameService>();
+        m_GM = DependencyInjector.Retrieve<IGameService>();
     }
 
     /// <summary>
@@ -57,10 +56,10 @@ public class WorldRender : MonoBehaviour
     public async void Update()
     {
         if (Input.GetKeyDown(KeyCode.O))
-            UnityEngine.Debug.Log(GameService.Configurations.BasePath);
+            UnityEngine.Debug.Log(m_GM.Configurations.BasePath);
         
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            await RenderLayer(GameService.Layers.Find(o => o.MinHeight == -7).Filename);
+            await RenderLayer(m_GM.Layers.Find(o => o.MinHeight == -7).Filename);
 
         await CheckChunk();
     }
@@ -91,7 +90,7 @@ public class WorldRender : MonoBehaviour
                     var worldRenderX = worldPlayerX + x;
                     var worldRenderY = worldPlayerY + y;
 
-                    var chunkLoaded = ChunksLoaded.Length >= (index + 1) ? ChunksLoaded[index] : null;
+                    var chunkLoaded = m_GM.ChunksLoaded.Length >= (index + 1) ? m_GM.ChunksLoaded[index] : null;
                     UnityEngine.Debug.Log($"x: {x}, y: {y}");
 
                     index++;
@@ -102,12 +101,12 @@ public class WorldRender : MonoBehaviour
                             continue;
                         else
                         {
-                            Chunks.Single(o => o.WX == chunkLoaded[0] && o.WY == chunkLoaded[1]).IsLoaded = false;
-                            ChunksLoaded[index - 1] = null;
+                            m_GM.Chunks.Single(o => o.WX == chunkLoaded[0] && o.WY == chunkLoaded[1]).IsLoaded = false;
+                            m_GM.ChunksLoaded[index - 1] = null;
                         }
                     }
 
-                    ChunksLoaded[index - 1] = new int[] { worldRenderX, worldRenderY };
+                    m_GM.ChunksLoaded[index - 1] = new int[] { worldRenderX, worldRenderY };
                     actions.Add(new int[] { worldRenderX, worldRenderY });
                 }
             }
@@ -139,7 +138,7 @@ public class WorldRender : MonoBehaviour
     {
         await Task.Factory.StartNew(() =>
         {
-            var chunk = Chunks.FirstOrDefault(o => o.WX == worldRenderX && o.WY == worldRenderY);
+            var chunk = m_GM.Chunks.FirstOrDefault(o => o.WX == worldRenderX && o.WY == worldRenderY);
 
             if (chunk == null)
                 chunk = GenerateChunk(worldRenderX, worldRenderY);
@@ -177,7 +176,7 @@ public class WorldRender : MonoBehaviour
             var listPos = new List<Vector3Int>();
             var listOre = new List<TileBase>();
 
-            var chunk = Chunks.Where(o => o.IsLoaded == false).SelectMany(o => o.WT).ToArray();
+            var chunk = m_GM.Chunks.Where(o => o.IsLoaded == false).SelectMany(o => o.WT).ToArray();
 
             for (int i = 0; i < chunk.Length; i++)
             {
@@ -234,7 +233,7 @@ public class WorldRender : MonoBehaviour
         UnityEngine.Debug.Log($"Tiles gerados: {chunk.WT.Length}");
 
         chunk.IsLoaded = true;
-        Chunks.Add(chunk);
+        m_GM.Chunks.Add(chunk);
         return chunk;
     }
 
@@ -254,7 +253,7 @@ public class WorldRender : MonoBehaviour
 
         await Task.Factory.StartNew(() =>
         {
-            foreach (var tile in GameService.Layers.Find(o => o.Filename == filename).LayerTiles)
+            foreach (var tile in m_GM.Layers.Find(o => o.Filename == filename).LayerTiles)
             {
                 if (tile.Y < -50)
                     break;

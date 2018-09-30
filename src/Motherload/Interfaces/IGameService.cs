@@ -21,10 +21,20 @@ namespace Motherload.Interfaces
         /// </summary>
         List<Layer> Layers { get; set; }
 
+        /// <summary>
+        /// Chunks que foram carregados
+        /// </summary>
+        int[][] ChunksLoaded { get; set; }
+
+        /// <summary>
+        /// Todos os chunks do jogo
+        /// </summary>
+        List<Chunk> Chunks { get; set; }
+
         #endregion
 
         #region Constructors
-        
+
         /// <summary>
         /// Iniciliza o jogo
         /// </summary>

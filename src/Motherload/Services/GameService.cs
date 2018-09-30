@@ -53,10 +53,20 @@ namespace Motherload.Services
         /// </summary>
         public List<Layer> Layers { get; set; }
 
+        /// <summary>
+        /// Implemetanção de <see cref="IGameService.ChunksLoaded"/>
+        /// </summary>
+        public int[][] ChunksLoaded { get; set; }
+
+        /// <summary>
+        /// Implemetanção de <see cref="IGameService.Chunks"/>
+        /// </summary>
+        public List<Chunk> Chunks { get; set; }
+
         #endregion
 
         #region Constructors
-        
+
         /// <summary>
         /// Inicializa o jogo
         /// </summary>
@@ -68,6 +78,8 @@ namespace Motherload.Services
             Debugger = DependencyInjector.Retrieve<IDebugger>();
             PlayerPrefs = DependencyInjector.Retrieve<IPlayerPrefs>();
 
+            ChunksLoaded = new int[25][];
+            Chunks = new List<Chunk>();
             LoadConfig();
         }
 
