@@ -5,7 +5,7 @@ namespace Motherload.Models
     /// <summary>
     /// Model usada para salvar informações sobre os tiles.
     /// </summary>
-    public class LayerTiles
+    public class ChunkTiles
     {
         /// <summary>
         /// Posição em X do tile.
@@ -20,6 +20,6 @@ namespace Motherload.Models
         /// <summary>
         /// Tipo do tile.
         /// </summary>
-        public OresTypes Type { get; set; }
+        public OresTypes T { get; set; }
     }
 }

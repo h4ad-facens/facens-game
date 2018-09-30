@@ -1,4 +1,5 @@
-﻿using Motherload.Enums;
+﻿using Assets.Scripts.Helpers;
+using Motherload.Enums;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace Assets.Scripts.Player
     {
         #region Oretile
         
-        public SpriteAtlas m_Atlas;
+        private AtlasLoader m_Atlas;
 
         /// <summary>
         /// Indica se é um minério
@@ -21,22 +22,27 @@ namespace Assets.Scripts.Player
         /// <summary>
         /// Tipo de piso
         /// </summary>
-        public OresTypes TileType = OresTypes.NORMAL;
+        public OresTypes TileType { get; set; } = OresTypes.NORMAL;
 
         /// <summary>
         /// Sobrescreve a informação sobre o piso original
         /// </summary>
         public override void GetTileData(Vector3Int position, ITilemap tilemap, ref TileData tileData)
         {
-            if (IsNormal)
-                base.GetTileData(position, tilemap, ref tileData);
-            else
+            if(m_Atlas == null)
+                m_Atlas = new AtlasLoader("Tileset");
+
+            TileType = OresTypes.NORMAL;
+            base.GetTileData(position, tilemap, ref tileData);
+
+            if (!IsNormal)
             {
-                tileData.sprite = m_Atlas.GetSprite("tileset_20");
+                tileData.colliderType = Tile.ColliderType.Sprite;
+                tileData.sprite = m_Atlas.getAtlas("Tileset_11");
             }
         }
 
         #endregion
-        
+
     }
 }

@@ -94,17 +94,17 @@ namespace Motherload.Services
 
                 var watch = new Stopwatch();
                 var random = new Random();
-                var listTiles = new List<LayerTiles>();
+                var listTiles = new List<ChunkTiles>();
 
                 for (var y = layer.MinHeight; y >= layer.MaxHeight; y--)
                 {
                     for (var x = Configurations.MinSpawnWorldX; x <= Configurations.MaxSpawnWorldX; x++)
                     {
-                        listTiles.Add(new LayerTiles()
+                        listTiles.Add(new ChunkTiles()
                         {
                             X = x,
                             Y = y,
-                            Type = layer.LayerOres[random.Next(0, layer.LayerOres.Count - 1)]
+                            T = layer.LayerOres[random.Next(0, layer.LayerOres.Count - 1)]
                         });
                     }
                 }
@@ -206,7 +206,7 @@ namespace Motherload.Services
                     var watch = new Stopwatch();
                     watch.Start();
 
-                    Layers.Find(o => o.Filename == file.FullName).LayerTiles = JsonConvert.DeserializeObject<List<LayerTiles>>(await stream.ReadToEndAsync());
+                    Layers.Find(o => o.Filename == file.FullName).LayerTiles = JsonConvert.DeserializeObject<List<ChunkTiles>>(await stream.ReadToEndAsync());
 
                     watch.Stop();
                     Debugger.Log($"Levou {watch.ElapsedMilliseconds} milisegundos para carregar o mapa.");

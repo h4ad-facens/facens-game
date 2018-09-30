@@ -43,7 +43,7 @@ namespace Motherload.Models
         /// Pisos que está camada possui
         /// </summary>
         [JsonIgnore]
-        public List<LayerTiles> LayerTiles { get; set; }
+        public List<ChunkTiles> LayerTiles { get; set; }
 
     }
 }
