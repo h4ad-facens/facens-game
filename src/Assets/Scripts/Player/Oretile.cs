@@ -1,10 +1,7 @@
 ﻿using Assets.Scripts.Helpers;
 using Motherload.Enums;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.U2D;
 
 namespace Assets.Scripts.Player
 {
@@ -31,8 +28,7 @@ namespace Assets.Scripts.Player
         {
             if(m_Atlas == null)
                 m_Atlas = new AtlasLoader("Tileset");
-
-            TileType = OresTypes.NORMAL;
+            
             base.GetTileData(position, tilemap, ref tileData);
 
             if (!IsNormal)

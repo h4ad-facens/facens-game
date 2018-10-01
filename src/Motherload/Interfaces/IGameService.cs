@@ -24,10 +24,10 @@ namespace Motherload.Interfaces
         /// <summary>
         /// Chunks que foram carregados
         /// </summary>
-        int[][] ChunksLoaded { get; set; }
+        List<int[]> ChunksLoaded { get; set; }
 
         /// <summary>
-        /// Todos os chunks do jogo
+        /// Todos os chunks gerados no jogo
         /// </summary>
         List<Chunk> Chunks { get; set; }
 

@@ -1,19 +1,13 @@
 ﻿using Motherload.Factories;
 using Motherload.Interfaces;
 using Motherload.Models;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Linq;
 using Motherload.Enums;
-using System.Threading;
 using Assets.Scripts.Player;
-using Motherload.Helpers;
 
 /// <summary>
 /// Classe que será responsável por lidar com o renderizar do mundo
@@ -53,21 +47,15 @@ public class WorldRender : MonoBehaviour
     /// <summary>
     /// Chamado a cada atualização de frame.
     /// </summary>
-    public async void Update()
+    public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O))
-            UnityEngine.Debug.Log(m_GM.Configurations.BasePath);
-        
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            await RenderLayer(m_GM.Layers.Find(o => o.MinHeight == -7).Filename);
-
-        await CheckChunk();
+        CheckChunk();
     }
-
+    
     /// <summary>
     /// Verifica se precisa carregar, remover ou criar um chunk.
     /// </summary>
-    public async Task CheckChunk()
+    public void CheckChunk()
     {
         var worldPlayerX = (int)Math.Ceiling(transform.position.x / 4);
         var worldPlayerY = (int)Math.Ceiling(transform.position.y / 4);
@@ -78,55 +66,41 @@ public class WorldRender : MonoBehaviour
         LastUpdate[0] = worldPlayerX;
         LastUpdate[1] = worldPlayerY;
 
-        await Task.Factory.StartNew(() =>
+        m_GM.ChunksLoaded.ForEach(o => o[0] = (int)ChunkAction.DESTROY);
+
+        for (var x = -3; x <= 2; x++)
         {
-            var index = 0;
-            var actions = new List<int[]>();
-
-            for (var x = -2; x <= 2; x++)
+            for (var y = -1; y <= 1; y++)
             {
-                for (var y = -2; y <= 2; y++)
-                {
-                    var worldRenderX = worldPlayerX + x;
-                    var worldRenderY = worldPlayerY + y;
+                var worldRenderX = worldPlayerX + x;
+                var worldRenderY = worldPlayerY + y;
 
-                    var chunkLoaded = m_GM.ChunksLoaded.Length >= (index + 1) ? m_GM.ChunksLoaded[index] : null;
-                    UnityEngine.Debug.Log($"x: {x}, y: {y}");
-
-                    index++;
-                    if (chunkLoaded != null)
-                    {
-                        // Verifica se o chunk não foi carregado, se foi, ele continua a execução
-                        if (chunkLoaded[0] == worldRenderX && chunkLoaded[1] == worldRenderY)
-                            continue;
-                        else
-                        {
-                            m_GM.Chunks.Single(o => o.WX == chunkLoaded[0] && o.WY == chunkLoaded[1]).IsLoaded = false;
-                            m_GM.ChunksLoaded[index - 1] = null;
-                        }
-                    }
-
-                    m_GM.ChunksLoaded[index - 1] = new int[] { worldRenderX, worldRenderY };
-                    actions.Add(new int[] { worldRenderX, worldRenderY });
+                var chunkLoaded = m_GM.ChunksLoaded.SingleOrDefault(o => (o[0] == (int)ChunkAction.UNLOADED || o[0] == (int)ChunkAction.LOADED) && o[1] == worldRenderX && o[2] == worldRenderY);
+                
+                // Caso não haja um chunk carregado para esse valor, ele vai e carrega.
+                if (chunkLoaded == null) {
+                    m_GM.ChunksLoaded.Add(new int[] { (int)ChunkAction.TO_LOAD, worldRenderX, worldRenderY });
+                    continue;
                 }
+                
+                // Se houver um chunk só que ele não esteja carregado, ele vai e 
+                var chunkIndex = m_GM.ChunksLoaded.IndexOf(chunkLoaded);
+
+                if (chunkLoaded[0] == (int)ChunkAction.UNLOADED)
+                    chunkLoaded[0] = (int)ChunkAction.TO_LOAD;
+                else
+                    chunkLoaded[0] = (int)ChunkAction.DO_NOTHING;
+                
+                m_GM.ChunksLoaded[chunkIndex] = chunkLoaded;
+
             }
+        }
 
-            return actions.ToArray();
+        RemoveChunk();
+        LoadChunk();
 
-        }).ContinueWith(async (actions) =>
-        {
-            var things = await actions;
-
-            for (var i = 0; i < things.Length; i++)
-            {
-                await LoadChunk(things[i][0], things[i][1]);
-            }
-
-            await RemoveChunk();
-
-            RenderTilemap.gameObject.GetComponent<TilemapCollider2D>().enabled = false;
-            RenderTilemap.gameObject.GetComponent<TilemapCollider2D>().enabled = true;
-        }, TaskScheduler.FromCurrentSynchronizationContext());
+        RenderTilemap.gameObject.GetComponent<TilemapCollider2D>().enabled = false;
+        RenderTilemap.gameObject.GetComponent<TilemapCollider2D>().enabled = true;
     }
 
     /// <summary>
@@ -134,34 +108,39 @@ public class WorldRender : MonoBehaviour
     /// </summary>
     /// <param name="worldRenderX">Posição absoluta do mundo em X</param>
     /// <param name="worldRenderY">Posição absoluta do mundo em Y</param>
-    public async Task LoadChunk(int worldRenderX, int worldRenderY)
+    public void LoadChunk()
     {
-        await Task.Factory.StartNew(() =>
+        var listTiles = new List<ChunkTiles>();
+
+        m_GM.ChunksLoaded.Where(o => o[0] == (int)ChunkAction.TO_LOAD).ToList().ForEach(chunkLoaded =>
         {
-            var chunk = m_GM.Chunks.FirstOrDefault(o => o.WX == worldRenderX && o.WY == worldRenderY);
+            var chunk = m_GM.Chunks.SingleOrDefault(o => o.WX == chunkLoaded[1] && o.WY == chunkLoaded[2]);
 
             if (chunk == null)
-                chunk = GenerateChunk(worldRenderX, worldRenderY);
+                chunk = GenerateChunk(chunkLoaded[1], chunkLoaded[2]);
 
-            var listOre = new Oretile[chunk.WT.Length];
-            var listPos = new Vector3Int[chunk.WT.Length];
+            listTiles.AddRange(chunk.WT);
+            chunkLoaded[0] = (int)ChunkAction.LOADED;
+        });
 
-            for (int i = 0; i < chunk.WT.Length; i++)
-            {
-                var oreClone = OreTile;
-                oreClone.TileType = chunk.WT[i].T;
-
-                listPos[i] = new Vector3Int(chunk.WT[i].X, chunk.WT[i].Y, 0);
-                listOre[i] = oreClone;
-            }
-
-            return new object[] { listPos, listOre };
-
-        }).ContinueWith(async (lists) =>
+        m_GM.ChunksLoaded.Where(o => o[0] == (int)ChunkAction.DO_NOTHING).ToList().ForEach(chunkLoaded =>
         {
-            var result = await lists;
-            RenderTilemap.SetTiles(result[0] as Vector3Int[], result[1] as TileBase[]);
-        }, TaskScheduler.FromCurrentSynchronizationContext());
+            chunkLoaded[0] = (int)ChunkAction.LOADED;
+        });
+
+        var listOre = new Oretile[listTiles.Count];
+        var listPos = new Vector3Int[listTiles.Count];
+
+        for (int i = 0; i < listTiles.Count; i++)
+        {
+            var oreClone = OreTile;
+            oreClone.TileType = listTiles[i].T;
+
+            listPos[i] = new Vector3Int(listTiles[i].X, listTiles[i].Y, 0);
+            listOre[i] = oreClone;
+        }
+        
+        RenderTilemap.SetTiles(listPos, listOre);
     }
 
     /// <summary>
@@ -169,32 +148,31 @@ public class WorldRender : MonoBehaviour
     /// </summary>
     /// <param name="worldRenderX">Posição absoluta do mundo em X</param>
     /// <param name="worldRenderY">Posição absoluta do mundo em Y</param>
-    public async Task RemoveChunk()
+    public void RemoveChunk()
     {
-        await Task.Factory.StartNew(() =>
+        var listTiles = new List<ChunkTiles>();
+
+        m_GM.ChunksLoaded.Where(o => o[0] == (int)ChunkAction.DESTROY).ToList().ForEach(chunkLoaded =>
         {
-            var listPos = new List<Vector3Int>();
-            var listOre = new List<TileBase>();
+            var chunk = m_GM.Chunks.SingleOrDefault(o => o.WX == chunkLoaded[1] && o.WY == chunkLoaded[2]);
 
-            var chunk = m_GM.Chunks.Where(o => o.IsLoaded == false).SelectMany(o => o.WT).ToArray();
-
-            for (int i = 0; i < chunk.Length; i++)
+            if (chunk != null)
             {
-                listOre.Add(null);
-                listPos.Add(new Vector3Int(chunk[i].X, chunk[i].Y, 0));
+                listTiles.AddRange(chunk.WT);
+                chunkLoaded[0] = (int)ChunkAction.UNLOADED;
             }
-
-            return new object[] { listPos, listOre };
-
-        }).ContinueWith(async (lists) =>
+        });
+        
+        var listPos = new Vector3Int[listTiles.Count];
+        var listOre = new TileBase[listTiles.Count];
+        
+        for (int i = 0; i < listTiles.Count; i++)
         {
-            var result = await lists;
+            listOre[i] = null;
+            listPos[i] = new Vector3Int(listTiles[i].X, listTiles[i].Y, 0);
+        }
 
-            if (result.Length == 0)
-                return;
-
-            RenderTilemap.SetTiles(result[0] as Vector3Int[], result[1] as TileBase[]);
-        }, TaskScheduler.FromCurrentSynchronizationContext());
+        RenderTilemap.SetTiles(listPos.ToArray(), listOre.ToArray());
     }
 
     /// <summary>
@@ -207,11 +185,10 @@ public class WorldRender : MonoBehaviour
     {
         var chunk = new Chunk() { WX = worldRenderX, WY = worldRenderY };
         var list = new List<ChunkTiles>();
-
-        var index = 0;
-        for(var y = -8; y <= 7; y++)
+        
+        for(var y = -8; y <= 8; y++)
         {
-            for (var x = -8; x <= 7; x++)
+            for (var x = -8; x <= 8; x++)
             {
                 if (((worldRenderY * 4) + y) >= -7)
                     continue;
@@ -223,52 +200,15 @@ public class WorldRender : MonoBehaviour
                     Y = (worldRenderY * 4) + y,
                     T = OresTypes.COAL
                 });
-
-                index++;
             }
         }
 
         chunk.WT = list.ToArray();
-
-        UnityEngine.Debug.Log($"Tiles gerados: {chunk.WT.Length}");
-
+        
         chunk.IsLoaded = true;
         m_GM.Chunks.Add(chunk);
+
         return chunk;
-    }
-
-
-    /// <summary>
-    /// Renderiza o mundo
-    /// </summary>
-    /// <param name="filename">Arquivo com os pisos a serem renderizados</param>
-    /// <returns></returns>
-    public async Task RenderLayer(string filename)
-    {
-        var watch = new Stopwatch();
-        watch.Start();
-
-        var positions = new List<Vector3Int>();
-        var blocks = new List<RuleTile>();
-
-        await Task.Factory.StartNew(() =>
-        {
-            foreach (var tile in m_GM.Layers.Find(o => o.Filename == filename).LayerTiles)
-            {
-                if (tile.Y < -50)
-                    break;
-
-                positions.Add(new Vector3Int(tile.X, tile.Y, 0));
-
-                blocks.Add(OreTile);
-            }
-        });
-
-        // Consertar isso
-        RenderTilemap.SetTiles(positions.ToArray(), blocks.ToArray());
-        
-        watch.Stop();
-        UnityEngine.Debug.Log($"Levou {watch.ElapsedMilliseconds} milisegundos para renderizar o mapa.");
     }
 }
 
