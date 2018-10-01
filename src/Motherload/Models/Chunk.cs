@@ -1,7 +1,8 @@
-﻿using Newtonsoft.Json;
-
-namespace Motherload.Models
+﻿namespace Motherload.Models
 {
+    /// <summary>
+    /// Guarda as informações de uma àrea do mapa do jogo
+    /// </summary>
     public class Chunk
     {
         /// <summary>
@@ -18,8 +19,5 @@ namespace Motherload.Models
         /// Pisos do chunk
         /// </summary>
         public ChunkTiles[] WT;
-
-        [JsonIgnore]
-        public bool IsLoaded { get; set; }
     }
 }

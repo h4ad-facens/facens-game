@@ -49,6 +49,12 @@ public class WorldRender : MonoBehaviour
     /// </summary>
     public void Update()
     {
+        if (Input.GetKey(KeyCode.Alpha1))
+            m_GM.SaveChunks();
+
+        if (Input.GetKey(KeyCode.Alpha2))
+            m_GM.LoadChunks();
+
         CheckChunk();
     }
     
@@ -204,8 +210,6 @@ public class WorldRender : MonoBehaviour
         }
 
         chunk.WT = list.ToArray();
-        
-        chunk.IsLoaded = true;
         m_GM.Chunks.Add(chunk);
 
         return chunk;

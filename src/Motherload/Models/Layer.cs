@@ -1,5 +1,4 @@
 ﻿using Motherload.Enums;
-using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace Motherload.Models
@@ -33,17 +32,5 @@ namespace Motherload.Models
         /// Minérios spawnados nesta camada
         /// </summary>
         public List<OresTypes> LayerOres { get; set; }
-
-        /// <summary>
-        /// Caminho para o arquivo de tiles desta camada
-        /// </summary>
-        public string Filename { get; set; }
-
-        /// <summary>
-        /// Pisos que está camada possui
-        /// </summary>
-        [JsonIgnore]
-        public List<ChunkTiles> LayerTiles { get; set; }
-
     }
 }

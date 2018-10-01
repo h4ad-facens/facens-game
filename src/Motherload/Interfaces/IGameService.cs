@@ -43,12 +43,7 @@ namespace Motherload.Interfaces
         #endregion
 
         #region Generators
-
-        /// <summary>
-        /// Gera os pisos de cada camada
-        /// </summary>
-        Task GenerateLayerTiles();
-
+        
         /// <summary>
         /// Gerá um arquivo de configuração padrão
         /// </summary>
@@ -57,6 +52,16 @@ namespace Motherload.Interfaces
         #endregion
 
         #region Methods
+
+        /// <summary>
+        /// Salva os Chunks gerados
+        /// </summary>
+        void SaveChunks();
+
+        /// <summary>
+        /// Carrega os Chunks gerados e salvos no HD.
+        /// </summary>
+        void LoadChunks();
 
         /// <summary>
         /// Retorna as configurações do jogo

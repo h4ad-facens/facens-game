@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Motherload.Services
@@ -86,49 +87,43 @@ namespace Motherload.Services
         #endregion
 
         #region Generators
-
+        
         /// <summary>
         /// Gera os pisos de cada camada
         /// </summary>
-        public async Task GenerateLayerTiles()
+        public void SaveChunks()
         {
             foreach (FileInfo file in new DirectoryInfo(Path.GetFullPath(Configurations.LayerTilesFolderPath)).GetFiles())
             {
                 file.Delete();
             }
-
-            var writer = new BaseFileManager();
-
-            foreach (var layer in Layers)
+            
+            byte[] inputBuffer = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(Chunks));
+            byte[] outputBuffer = null;
+        
+            using (var outputFile = File.OpenWrite(Path.GetFullPath(Configurations.LayerTilesFolderPath + "//Chunks.lzf")))
             {
-                if (layer.MinHeight > Configurations.MaxSpawnWorldHeight)
-                    continue;
+                // Compress input.
+                int compressedSize = CLZF2.Compress(inputBuffer, ref outputBuffer);
 
-                var watch = new Stopwatch();
-                var random = new Random();
-                var listTiles = new List<ChunkTiles>();
-
-                for (var y = layer.MinHeight; y >= layer.MaxHeight; y--)
-                {
-                    for (var x = Configurations.MinSpawnWorldX; x <= Configurations.MaxSpawnWorldX; x++)
-                    {
-                        listTiles.Add(new ChunkTiles()
-                        {
-                            X = x,
-                            Y = y,
-                            T = layer.LayerOres[random.Next(0, layer.LayerOres.Count - 1)]
-                        });
-                    }
-                }
-
-                var filename = Path.GetFullPath($"{Configurations.LayerTilesFolderPath}\\Layer_{DateTime.Now.Ticks}.json");
-
-                Layers.Find((o) => o.MinHeight == layer.MinHeight).Filename = filename;
-                await writer.WriteTextToFileAsync(JsonConvert.SerializeObject(listTiles, Formatting.None), filename);
-
-                watch.Stop();
-                Debugger.Log($"Layer gerada! Tempo levado: {watch.ElapsedMilliseconds} ms.");
+                // Write compressed data to file.
+                // Note the use of the size returned by Compress and not outputBuffer.Length.
+                outputFile.Write(outputBuffer, 0, compressedSize);
             }
+        }
+
+        /// <summary>
+        /// Carrega os Chunks salvos no HD.
+        /// </summary>
+        public void LoadChunks()
+        {
+            var pathFile = Path.GetFullPath(Configurations.LayerTilesFolderPath + "//Chunks.lzf");
+
+            if (!File.Exists(pathFile))
+                return;
+
+            var chunksBytes = CLZF2.Decompress(File.ReadAllBytes(pathFile));
+            Chunks = JsonConvert.DeserializeObject<List<Chunk>>(Encoding.ASCII.GetString(chunksBytes));
         }
         
         /// <summary>
@@ -220,8 +215,7 @@ namespace Motherload.Services
                 {
                     var watch = new Stopwatch();
                     watch.Start();
-
-                    Layers.Find(o => o.Filename == file.FullName).LayerTiles = JsonConvert.DeserializeObject<List<ChunkTiles>>(await stream.ReadToEndAsync());
+                    
 
                     watch.Stop();
                     Debugger.Log($"Levou {watch.ElapsedMilliseconds} milisegundos para carregar o mapa.");
