@@ -62,7 +62,7 @@ namespace Motherload.Models
         /// Caminho onde o arquivo que conterá informações sobre os minérios está salvo.
         /// </summary>
         public string OresFilePath { get; set; }
-        
+
         /// <summary>
         /// Altura máxima em que será gerado o mundo
         /// </summary>
@@ -71,11 +71,11 @@ namespace Motherload.Models
         /// <summary>
         /// Posição mínima em X que será gerado o mundo.
         /// </summary>
-        public int MinSpawnWorldX = -52;
+        public int MinSpawnWorldX { get; set; }
 
         /// <summary>
         /// Posição máxima em X que será gerado o mundo.
         /// </summary>
-        public int MaxSpawnWorldX = 84;
+        public int MaxSpawnWorldX { get; set; }
     }
 }

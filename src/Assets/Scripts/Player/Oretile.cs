@@ -29,12 +29,14 @@ namespace Assets.Scripts.Player
             if(m_Atlas == null)
                 m_Atlas = new AtlasLoader("Tileset");
             
-            base.GetTileData(position, tilemap, ref tileData);
-
             if (!IsNormal)
             {
                 tileData.colliderType = Tile.ColliderType.Sprite;
                 tileData.sprite = m_Atlas.getAtlas("Tileset_11");
+            }
+            else
+            {
+                base.GetTileData(position, tilemap, ref tileData);
             }
         }
 

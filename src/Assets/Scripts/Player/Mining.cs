@@ -73,7 +73,7 @@ namespace Assets.Scripts.Player
             var worldPlayerY = (int)Math.Ceiling(transform.position.y / 4);
             var pos = new Vector3Int((int)Math.Floor(transform.position.x) + offsetX, (int)Math.Floor(transform.position.y) + offsetY, 0);
 
-            if (m_GM.Configurations.MaxSpawnWorldHeight < transform.position.y)
+            if (m_GM.Configurations.MaxSpawnWorldHeight < transform.position.y && (pos.x < -1 || pos.x > 5))
                 return;
 
             var tile = m_GM.Chunks.FirstOrDefault(o => o.WX == worldPlayerX && o.WY == worldPlayerY);

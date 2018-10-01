@@ -182,8 +182,11 @@ namespace Motherload.Services
                 BasePath = basePath,
                 LayersFilePath = layersFilePath,
                 LayerTilesFolderPath = layerTilesPath,
-                OresFilePath = oresFilePath
-            }, Formatting.None);
+                OresFilePath = oresFilePath,
+                MaxSpawnWorldHeight = -6,
+                MaxSpawnWorldX = 84,
+                MinSpawnWorldX = -52
+        }, Formatting.None);
 
             // Salva as configurações serializadas no PlayerPrefs
             PlayerPrefs.SetString(Config.PREFS_KEY, configs);

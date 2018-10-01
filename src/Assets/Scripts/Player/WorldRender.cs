@@ -198,7 +198,7 @@ public class WorldRender : MonoBehaviour
                 {
                     X = (worldRenderX * 4) + x,
                     Y = (worldRenderY * 4) + y,
-                    T = OresTypes.COAL
+                    T = UnityEngine.Random.Range(0, 100) <= 6 ? OresTypes.COAL : OresTypes.NORMAL
                 });
             }
         }
