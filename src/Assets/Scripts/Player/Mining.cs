@@ -1,6 +1,9 @@
-﻿using Motherload.Factories;
+﻿using Motherload.Enums;
+using Motherload.Factories;
 using Motherload.Interfaces;
+using Motherload.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -69,29 +72,13 @@ namespace Assets.Scripts.Player
         /// <param name="offsetY">Offset em Y</param>
         public void UpdateAndRemoveTile(int offsetX, int offsetY)
         {
-            var worldPlayerX = (int)Math.Ceiling(transform.position.x / 4);
-            var worldPlayerY = (int)Math.Ceiling(transform.position.y / 4);
             var pos = new Vector3Int((int)Math.Floor(transform.position.x) + offsetX, (int)Math.Floor(transform.position.y) + offsetY, 0);
 
             if (m_GM.Configurations.MaxSpawnWorldHeight < transform.position.y && (pos.x < -1 || pos.x > 5))
                 return;
 
-            var tile = m_GM.Chunks.FirstOrDefault(o => o.WX == worldPlayerX && o.WY == worldPlayerY);
-
-            if (tile == null)
-                return;
-
-            var tileIndex = m_GM.Chunks.IndexOf(tile);
-
-            if (tileIndex == -1)
-                return;
-
-            tile.WT.ToList().RemoveAll(o => o.X == pos.x && o.Y == pos.y);
-            m_GM.Chunks[tileIndex] = tile;
-
             m_World.SetTile(pos, null);
             m_NextMining = Time.time + m_MiningInterval;
         }
-
     }
 }

@@ -43,20 +43,6 @@ public class WorldRender : MonoBehaviour
         PlayerPrefs.DeleteAll();
         m_GM = DependencyInjector.Retrieve<IGameService>();
     }
-
-    /// <summary>
-    /// Chamado a cada atualização de frame.
-    /// </summary>
-    public void Update()
-    {
-        if (Input.GetKey(KeyCode.Alpha1))
-            m_GM.SaveChunks();
-
-        if (Input.GetKey(KeyCode.Alpha2))
-            m_GM.LoadChunks();
-
-        CheckChunk();
-    }
     
     /// <summary>
     /// Verifica se precisa carregar, remover ou criar um chunk.
@@ -145,7 +131,6 @@ public class WorldRender : MonoBehaviour
             listPos[i] = new Vector3Int(listTiles[i].X, listTiles[i].Y, 0);
             listOre[i] = oreClone;
         }
-        
         RenderTilemap.SetTiles(listPos, listOre);
     }
 
