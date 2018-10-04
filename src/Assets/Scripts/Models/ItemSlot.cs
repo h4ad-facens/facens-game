@@ -30,7 +30,7 @@ namespace Assets.Scripts.Models
                 }
                 else
                 {
-                    GetComponent<Image>().sprite = new AtlasLoader("Tileset").getAtlas(m_Item.Sprite);
+                    GetComponent<Image>().sprite = new AtlasLoader("Tileset").getAtlas(m_Item.GetAttributeValue<string>(Attribute.SPRITE));
                     GetComponent<Image>().enabled = true;
                 }
             }

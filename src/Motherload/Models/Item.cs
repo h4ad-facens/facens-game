@@ -56,24 +56,18 @@ namespace Motherload.Models
         public T GetAttributeValue<T>(string key)
         {
             return (T)Convert.ChangeType(Attributes.First(o => o.Key == key).Value, typeof(T));
-        } 
+        }
+
+        /// <summary>
+        /// Atribui um valor a um atributo
+        /// </summary>
+        /// <param name="key">Key do atributo</param>
+        /// <param name="value">Valor a ser atribuido</param>
+        public void SetAttributeValue(string key, string value)
+        {
+            Attributes.ForEach(o => { if (o.Key == key) o.Value = value; });
+        }
 
         #endregion
-    }
-
-    /// <summary>
-    /// Atributos adicionais para os items
-    /// </summary>
-    public class Attribute
-    {
-        /// <summary>
-        /// Key do atributo
-        /// </summary>
-        public string Key;
-
-        /// <summary>
-        /// Valor do atributo
-        /// </summary>
-        public string Value;
     }
 }

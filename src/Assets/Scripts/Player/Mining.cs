@@ -1,4 +1,5 @@
-﻿using Motherload.Factories;
+﻿using Motherload.Enums;
+using Motherload.Factories;
 using Motherload.Interfaces;
 using System;
 using System.Linq;
@@ -97,7 +98,7 @@ namespace Assets.Scripts.Player
             if (tile == null)
                 return;
 
-            var item = m_GM.Items.FirstOrDefault(o => o.OreType == tile.TileType);
+            var item = m_GM.Items.FirstOrDefault(o => o.GetAttributeValue<int>(Motherload.Models.Attribute.ORETYPE) == (int)tile.TileType);
 
             if (item == null)
                 return;

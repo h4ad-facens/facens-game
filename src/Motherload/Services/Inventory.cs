@@ -19,7 +19,7 @@ namespace Motherload.Services
         /// Constante usada para obter e salvar informações no PlayerPrefs
         /// </summary>
         private static readonly string INVENTORY_KEY = "INVENTORY_KEY_PREFS";
-
+        
         /// <summary>
         /// Constante usada para setar capacidade máxima de itens no inventário
         /// </summary>
@@ -56,7 +56,7 @@ namespace Motherload.Services
         /// <summary>
         /// Peso atual dos itens no inventário
         /// </summary>
-        public float Weight => InventoryItems.Sum(o => o.Weight * o.Amount);
+        public float Weight => InventoryItems.Sum(o => o.GetAttributeValue<float>(Attribute.WEIGHT) * o.GetAttributeValue<int>(Attribute.AMOUNT));
 
 
         public float MaxWeight = 100f;
@@ -114,8 +114,8 @@ namespace Motherload.Services
             // TODO: Pensar em uma forma melhor de lidar com esses casos
             if (item == null)
                 return;
-
-            if (item.Stackable)
+            
+            if (item.GetAttributeValue<bool>(Attribute.STACKABLE))
             {
                 var itemInventory = InventoryItems.FirstOrDefault(o => o.UniqueID == uid);
 
@@ -123,7 +123,7 @@ namespace Motherload.Services
                 {
                     item = AddAmount(item, amount);
 
-                    if (item.Amount == 0)
+                    if (item.GetAttributeValue<int>(Attribute.AMOUNT) == 0)
                         return;
 
                     InventoryItems.Add(item);
@@ -148,7 +148,7 @@ namespace Motherload.Services
 
                 var nonStack = AddAmount(item, 1);
 
-                if (nonStack.Amount == 0)
+                if (nonStack.GetAttributeValue<int>(Attribute.AMOUNT) == 0)
                     continue;
 
                 InventoryItems.Add(nonStack);
@@ -166,18 +166,29 @@ namespace Motherload.Services
         /// <returns></returns>
         private Item AddAmount(Item item, int amount)
         {
+            if(!item.HasKey(Attribute.AMOUNT))
+                item.Attributes.Add(new Attribute()
+                {
+                    Key = Attribute.AMOUNT,
+                    Value = "0"
+                });
+
             var newWeight = Weight;
 
             for (var i = 0; i < amount; i++)
             {
-                if ((newWeight + item.Weight) > MaxWeight)
+                var itemWeight = item.GetAttributeValue<float>(Attribute.WEIGHT);
+
+                if ((newWeight + itemWeight) > MaxWeight)
                 {
                     DropItem(item.UniqueID, amount - i);
                     break;
                 }
 
-                item.Amount++;
-                newWeight += item.Weight;
+                var newAmount = item.GetAttributeValue<int>(Attribute.AMOUNT) + 1;
+                item.SetAttributeValue(Attribute.AMOUNT, newAmount.ToString());
+
+                newWeight += itemWeight;
             }
 
             return item;
@@ -190,8 +201,10 @@ namespace Motherload.Services
         {
             InventoryItems.ForEach(o => 
             {
-                if (o.UniqueID == uid)
-                    o.Amount -= amount;
+                if (o.UniqueID == uid) {
+                    var newAmount = o.GetAttributeValue<int>(Attribute.AMOUNT) - 1;
+                    o.SetAttributeValue(Attribute.AMOUNT, newAmount.ToString());
+                }
             });
 
             GameUI.RefreshInventory();
