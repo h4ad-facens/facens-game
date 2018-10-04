@@ -1,5 +1,8 @@
 ﻿using Motherload.Enums;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Motherload.Models
 {
@@ -8,6 +11,8 @@ namespace Motherload.Models
     /// </summary>
     public class Item
     {
+        #region Properties
+
         /// <summary>
         /// ID único do item usado para identifica-lo
         /// </summary>
@@ -19,43 +24,56 @@ namespace Motherload.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Preço do item no mercado
-        /// </summary>
-        public float Price { get; set; }
-
-        /// <summary>
-        /// Peso do item no inventário
-        /// </summary>
-        public float Weight { get; set; }
-        
-        /// <summary>
-        /// Pontos obtidos ao pegar o item
-        /// </summary>
-        public int Points { get; set; }
-
-        /// <summary>
-        /// Quantidade do item existente
-        /// </summary>
-        public int Amount { get; set; }
-
-        /// <summary>
-        /// Diz se o item é empilhavel
-        /// </summary>
-        public bool Stackable { get; set; }
-
-        /// <summary>
         /// Caminho para a Sprite do item
         /// </summary>
-        public string Sprite { get; set; }
+        public ItemTypes Type { get; set; }
 
         /// <summary>
-        /// Raridade do minério
+        /// Lista de atributos do item
         /// </summary>
-        public Raritys Rarity { get; set; }
+        public List<Attribute> Attributes { get; set; }
+
+        #endregion
+
+        #region Helpers
 
         /// <summary>
-        /// Tipo do minério
+        /// Verifica se há uma determinada key na lista de atributos
         /// </summary>
-        public OresTypes OreType { get; set; }
+        /// <param name="key">Key do atributo</param>
+        /// <returns></returns>
+        public bool HasKey(string key)
+        {
+            return Attributes.Exists(o => o.Key == key);
+        }
+
+        /// <summary>
+        /// Retorna o valor do atributo pela sua key.
+        /// </summary>
+        /// <typeparam name="T">Tipo do atributo buscado</typeparam>
+        /// <param name="key">Key do atributo</param>
+        /// <returns></returns>
+        public T GetAttributeValue<T>(string key)
+        {
+            return (T)Convert.ChangeType(Attributes.First(o => o.Key == key).Value, typeof(T));
+        } 
+
+        #endregion
+    }
+
+    /// <summary>
+    /// Atributos adicionais para os items
+    /// </summary>
+    public class Attribute
+    {
+        /// <summary>
+        /// Key do atributo
+        /// </summary>
+        public string Key;
+
+        /// <summary>
+        /// Valor do atributo
+        /// </summary>
+        public string Value;
     }
 }
