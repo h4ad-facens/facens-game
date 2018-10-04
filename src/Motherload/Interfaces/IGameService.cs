@@ -1,6 +1,5 @@
 ﻿using Motherload.Models;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Motherload.Interfaces
 {
@@ -31,6 +30,11 @@ namespace Motherload.Interfaces
         /// </summary>
         List<Chunk> Chunks { get; set; }
 
+        /// <summary>
+        /// Lista com todos os itens do jogo
+        /// </summary>
+        List<Item> Items { get; set; }
+
         #endregion
 
         #region Constructors
@@ -38,7 +42,7 @@ namespace Motherload.Interfaces
         /// <summary>
         /// Iniciliza o jogo
         /// </summary>
-        void Initilize();
+        void Initialize();
 
         #endregion
 
@@ -77,7 +81,12 @@ namespace Motherload.Interfaces
         /// <summary>
         /// Carrega todas as layers
         /// </summary>
-        Task LoadLayers();
+        void LoadLayers();
+
+        /// <summary>
+        /// Carrega os itens do jogo
+        /// </summary>
+        void LoadItems();
 
         #endregion
 
