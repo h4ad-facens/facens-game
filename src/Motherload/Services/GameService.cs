@@ -5,10 +5,8 @@ using Motherload.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Motherload.Services
 {
@@ -64,6 +62,11 @@ namespace Motherload.Services
         /// </summary>
         public List<Chunk> Chunks { get; set; }
 
+        /// <summary>
+        /// Implemetanção de <see cref="IGameService.Items"/>
+        /// </summary>
+        public List<Item> Items { get; set; }
+
         #endregion
 
         #region Constructors
@@ -71,7 +74,7 @@ namespace Motherload.Services
         /// <summary>
         /// Inicializa o jogo
         /// </summary>
-        public void Initilize()
+        public void Initialize()
         {
             FileManager = DependencyInjector.Retrieve<IFileManager>();
             TaskManager = DependencyInjector.Retrieve<ITaskManager>();
@@ -79,53 +82,22 @@ namespace Motherload.Services
             Debugger = DependencyInjector.Retrieve<IDebugger>();
             PlayerPrefs = DependencyInjector.Retrieve<IPlayerPrefs>();
 
+            PlayerPrefs.DeleteAll();
+
             ChunksLoaded = new List<int[]>();
             Chunks = new List<Chunk>();
+            Items = new List<Item>();
+            Layers = new List<Layer>();
+
             LoadConfig();
+            LoadLayers();
+            LoadItems();
         }
 
         #endregion
 
         #region Generators
-        
-        /// <summary>
-        /// Gera os pisos de cada camada
-        /// </summary>
-        public void SaveChunks()
-        {
-            foreach (FileInfo file in new DirectoryInfo(Path.GetFullPath(Configurations.LayerTilesFolderPath)).GetFiles())
-            {
-                file.Delete();
-            }
-            
-            byte[] inputBuffer = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(Chunks));
-            byte[] outputBuffer = null;
-        
-            using (var outputFile = File.OpenWrite(Path.GetFullPath(Configurations.LayerTilesFolderPath + "//Chunks.lzf")))
-            {
-                // Compress input.
-                int compressedSize = CLZF2.Compress(inputBuffer, ref outputBuffer);
 
-                // Write compressed data to file.
-                // Note the use of the size returned by Compress and not outputBuffer.Length.
-                outputFile.Write(outputBuffer, 0, compressedSize);
-            }
-        }
-
-        /// <summary>
-        /// Carrega os Chunks salvos no HD.
-        /// </summary>
-        public void LoadChunks()
-        {
-            var pathFile = Path.GetFullPath(Configurations.LayerTilesFolderPath + "//Chunks.lzf");
-
-            if (!File.Exists(pathFile))
-                return;
-
-            var chunksBytes = CLZF2.Decompress(File.ReadAllBytes(pathFile));
-            Chunks = JsonConvert.DeserializeObject<List<Chunk>>(Encoding.ASCII.GetString(chunksBytes));
-        }
-        
         /// <summary>
         /// Inicializa as configurações e retorna a string serializada das configurações.
         /// </summary>
@@ -164,12 +136,12 @@ namespace Motherload.Services
                 Directory.CreateDirectory(layerTilesPath);
 
             // Caminho para o arquivo json que conterá as informações sobre os minérios
-            var oresFilePath = Path.GetFullPath(basePath + Config.ORES_FILE_NAME);
+            var itemsFilePath = Path.GetFullPath(basePath + Config.ITEMS_FILE_NAME);
 
             // Verifica se o arquivo existe
-            if (!File.Exists(oresFilePath))
+            if (!File.Exists(itemsFilePath))
                 // Se não, cria um arquivo json e escreve os ores padrões obtidos do GameResources
-                File.WriteAllText(oresFilePath, ResourceLoader.LoadJson("Config/Ores"));
+                File.WriteAllText(itemsFilePath, ResourceLoader.LoadJson("Config/Items"));
 
             // Serializa uma nova instância dasconfigurações
             var configs = JsonConvert.SerializeObject(new Config()
@@ -177,7 +149,7 @@ namespace Motherload.Services
                 BasePath = basePath,
                 LayersFilePath = layersFilePath,
                 LayerTilesFolderPath = layerTilesPath,
-                OresFilePath = oresFilePath,
+                ItemsFilePath = itemsFilePath,
                 MaxSpawnWorldHeight = -6,
                 MaxSpawnWorldX = 84,
                 MinSpawnWorldX = -52
@@ -194,6 +166,43 @@ namespace Motherload.Services
         #region Methods
 
         /// <summary>
+        /// Gera os pisos de cada camada
+        /// </summary>
+        public void SaveChunks()
+        {
+            foreach (FileInfo file in new DirectoryInfo(Path.GetFullPath(Configurations.LayerTilesFolderPath)).GetFiles())
+            {
+                file.Delete();
+            }
+
+            byte[] inputBuffer = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(Chunks));
+            byte[] outputBuffer = null;
+
+            using (var outputFile = File.OpenWrite(Path.GetFullPath(Configurations.LayerTilesFolderPath + "//Chunks.lzf")))
+            {
+                // Compress input.
+                int compressedSize = CLZF2.Compress(inputBuffer, ref outputBuffer);
+
+                // Write compressed data to file.
+                // Note the use of the size returned by Compress and not outputBuffer.Length.
+                outputFile.Write(outputBuffer, 0, compressedSize);
+            }
+        }
+
+        /// <summary>
+        /// Carrega os Chunks salvos no HD.
+        /// </summary>
+        public void LoadChunks()
+        {
+            var pathFile = Path.GetFullPath(Configurations.LayerTilesFolderPath + "//Chunks.lzf");
+
+            if (!File.Exists(pathFile))
+                return;
+            
+            Chunks = JsonConvert.DeserializeObject<List<Chunk>>(Encoding.ASCII.GetString(CLZF2.Decompress(File.ReadAllBytes(pathFile))));
+        }
+
+        /// <summary>
         /// Retorna as configurações
         /// </summary>
         /// <returns></returns>
@@ -203,24 +212,27 @@ namespace Motherload.Services
         /// Carrega as informações de configuração
         /// </summary>
         public void LoadConfig() => Configurations = JsonConvert.DeserializeObject<Config>(PlayerPrefs.HasKey(Config.PREFS_KEY) ? PlayerPrefs.GetString(Config.PREFS_KEY) : GenerateConfig());
-        
-        /// <summary>
-        /// Carrega as layers
-        /// </summary>
-        public async Task LoadLayers()
-        {
-            foreach (var file in new DirectoryInfo(Path.GetFullPath(Configurations.LayerTilesFolderPath)).EnumerateFiles())
-            {
-                using (var stream = file.OpenText())
-                {
-                    var watch = new Stopwatch();
-                    watch.Start();
-                    
 
-                    watch.Stop();
-                    Debugger.Log($"Levou {watch.ElapsedMilliseconds} milisegundos para carregar o mapa.");
-                }
-            }
+        /// <summary>
+        /// Implementação de <see cref="IGameService.LoadLayers"/>
+        /// </summary>
+        public void LoadLayers()
+        {
+            if (!File.Exists(Configurations.LayersFilePath))
+                return;
+            
+            Layers = JsonConvert.DeserializeObject<List<Layer>>(File.ReadAllText(Configurations.LayersFilePath));
+        }
+
+        /// <summary>
+        /// Implementação de <see cref="IGameService.LoadItems"/>
+        /// </summary>
+        public void LoadItems()
+        {
+            if (!File.Exists(Configurations.ItemsFilePath))
+                return;
+            
+            Items = JsonConvert.DeserializeObject<List<Item>>(File.ReadAllText(Configurations.ItemsFilePath));
         }
 
         #endregion

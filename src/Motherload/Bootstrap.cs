@@ -18,6 +18,7 @@ namespace Motherload
             DependencyInjector.Register<IFileManager, BaseFileManager>();
             DependencyInjector.Register<ITaskManager, BaseTaskManager>();
             DependencyInjector.Register<IGameService, GameService>();
+            DependencyInjector.Register<IInventory, Inventory>();
         }
 
         /// <summary>

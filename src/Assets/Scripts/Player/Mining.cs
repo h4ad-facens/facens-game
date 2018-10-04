@@ -1,9 +1,6 @@
-﻿using Motherload.Enums;
-using Motherload.Factories;
+﻿using Motherload.Factories;
 using Motherload.Interfaces;
-using Motherload.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -15,10 +12,21 @@ namespace Assets.Scripts.Player
     /// </summary>
     public class Mining : MonoBehaviour
     {
+        #region Services
+
         /// <summary>
         /// Serviço principal do jogo
         /// </summary>
         private IGameService m_GM;
+
+        /// <summary>
+        /// Serviço de inventário
+        /// </summary>
+        private IInventory m_Inventory;
+
+        #endregion
+
+        #region Private Properties
 
         /// <summary>
         /// Mundo em que será minerado
@@ -31,10 +39,18 @@ namespace Assets.Scripts.Player
         /// </summary>
         private float m_NextMining;
 
+        #endregion
+
+        #region Public Properties
+
         /// <summary>
         /// Intervalo de tempo para que seja possível realizar a próxima mineração.
         /// </summary>
         public float m_MiningInterval;
+
+        #endregion
+
+        #region Unity
 
         /// <summary>
         /// Executado quando o script é carregado pela primeira vez.
@@ -42,6 +58,7 @@ namespace Assets.Scripts.Player
         public void Start()
         {
             m_GM = DependencyInjector.Retrieve<IGameService>();
+            m_Inventory = DependencyInjector.Retrieve<IInventory>();
         }
 
         /// <summary>
@@ -50,20 +67,18 @@ namespace Assets.Scripts.Player
         public void Update()
         {
             if (Input.GetKeyDown(KeyCode.S) && Time.time > m_NextMining)
-            {
                 UpdateAndRemoveTile(0, -1);
-            }
 
             if (Input.GetKeyDown(KeyCode.D) && Time.time > m_NextMining)
-            {
                 UpdateAndRemoveTile(1, 0);
-            }
 
             if (Input.GetKeyDown(KeyCode.A) && Time.time > m_NextMining)
-            {
                 UpdateAndRemoveTile(-1, 0);
-            }
         }
+
+        #endregion
+
+        #region Public Methods
 
         /// <summary>
         /// Atualiza e remove o piso
@@ -77,8 +92,21 @@ namespace Assets.Scripts.Player
             if (m_GM.Configurations.MaxSpawnWorldHeight < transform.position.y && (pos.x < -1 || pos.x > 5))
                 return;
 
+            var tile = m_World.GetTile<Oretile>(pos);
+
+            if (tile == null)
+                return;
+
+            var item = m_GM.Items.FirstOrDefault(o => o.OreType == tile.TileType);
+
+            if (item == null)
+                return;
+
+            m_Inventory.Add(item.UniqueID, 1);
             m_World.SetTile(pos, null);
             m_NextMining = Time.time + m_MiningInterval;
-        }
+        } 
+
+        #endregion
     }
 }
