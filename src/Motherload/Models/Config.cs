@@ -38,10 +38,9 @@ namespace Motherload.Models
         public readonly static string LAYER_FILE_NAME = "\\Layers.json";
 
         /// <summary>
-        /// Nome padrão do arquivo onde ficará salva as layers existentes no jogo.
+        /// Nome padrão do arquivo onde ficará salva as informações dos items existentes jogo.
         /// </summary>
-        [JsonIgnore]
-        public readonly static string ORES_FILE_NAME = "\\Ores.json";
+        public readonly static string ITEMS_FILE_NAME = "\\Items.json";
 
         /// <summary>
         /// Caminho padrão para a pasta de configurações.
@@ -59,9 +58,9 @@ namespace Motherload.Models
         public string LayerTilesFolderPath { get; set; }
         
         /// <summary>
-        /// Caminho onde o arquivo que conterá informações sobre os minérios está salvo.
+        /// Caminho onde o arquivo que conterá informações sobre os items.
         /// </summary>
-        public string OresFilePath { get; set; }
+        public string ItemsFilePath { get; set; }
 
         /// <summary>
         /// Altura máxima em que será gerado o mundo

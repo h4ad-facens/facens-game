@@ -1,226 +1,310 @@
 [
   {
+    "UniqueID":  1,
     "Name": "Terra",
     "Rarity": 0,
     "Price": 0,
     "Weight": 0.1,
     "Points": 0,
-    "OreType": -1
+    "OreType": -1,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 2,
     "Name": "Carvão",
     "Rarity": 1,
     "Price": 0, // A decidir
     "Weight": 1.5,
     "Points": 0, // A decidir
-    "OreType": 0
+    "OreType": 0,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 3,
     "Name": "Cobre",
     "Rarity": 1,
     "Price": 0, // A decidir
     "Weight": 2.6,
     "Points": 0, // A decidir
-    "OreType": 1
+    "OreType": 1,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 4,
     "Name": "Estanho",
     "Rarity": 1,
     "Price": 0, // A decidir
     "Weight": 2.2,
     "Points": 0, // A decidir
-    "OreType": 2
+    "OreType": 2,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 5,
     "Name": "Pedra",
-    "Rarity": 0.1,
+    "Rarity": 0,
     "Price": 0,
     "Weight": 3.0,
     "Points": 0,
-    "OreType": 3
+    "OreType": 3,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 6,
     "Name": "Alumínio",
     "Rarity": 1,
     "Price": 0, // A decidir
     "Weight": 2.4,
     "Points": 0, // A decidir
-    "OreType": 4
+    "OreType": 4,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 7,
     "Name": "Ferro",
     "Rarity": 2,
     "Price": 0, // A decidir
     "Weight": 2.6,
     "Points": 0, // A decidir
-    "OreType": 5
+    "OreType": 5,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 8,
     "Name": "Chumbo",
     "Rarity": 2,
     "Price": 0, // A decidir
     "Weight": 3.0,
     "Points": 0, // A decidir
-    "OreType": 6
+    "OreType": 6,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 9,
     "Name": "Pirita",
     "Rarity": 1,
     "Price": 0, // A decidir
     "Weight": 0.3,
     "Points": 0, // A decidir
-    "OreType": 7
+    "OreType": 7,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 10,
     "Name": "Tungstenio",
     "Rarity": 2,
     "Price": 0, // A decidir
     "Weight": 3.2,
     "Points": 0, // A decidir
-    "OreType": 8
+    "OreType": 8,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 11,
     "Name": "Prata",
     "Rarity": 2,
     "Price": 0, // A decidir
     "Weight": 2.2,
     "Points": 0, // A decidir
-    "OreType": 9
+    "OreType": 9,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 12,
     "Name": "Ouro",
-    "Rarity": 1,
+    "Rarity": 2,
     "Price": 0, // A decidir
     "Weight": 3.5,
     "Points": 0, // A decidir
-    "OreType": 10
+    "OreType": 10,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 13,
     "Name": "Ametista",
-    "Rarity": "Alta",
+    "Rarity": 3,
     "Price": 0, // A decidir
     "Weight": 2.6,
     "Points": 0, // A decidir
-    "OreType": 11
+    "OreType": 11,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 14,
     "Name": "Titânio",
-    "Rarity": "Alta",
+    "Rarity": 3,
     "Price": 0, // A decidir
     "Weight": 4.5,
     "Points": 0, // A decidir
-    "OreType": 12
+    "OreType": 12,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 15,
     "Name": "Lava",
     "Rarity": 0,
     "Price": 0,
     "Weight": 0,
     "Points": 0,
-    "OreType": 13
+    "OreType": 13,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 16,
     "Name": "Lapis-Lázuli",
-    "Rarity": "Alta",
+    "Rarity": 3,
     "Price": 0, // A decidir
     "Weight": 3.0,
     "Points": 0, // A decidir
-    "OreType": 14
+    "OreType": 14,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 17,
     "Name": "Àgata-Azul",
-    "Rarity": "Alta",
+    "Rarity": 3,
     "Price": 0, // A decidir
     "Weight": 2.6,
     "Points": 0, // A decidir
-    "OreType": 15
+    "OreType": 15,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 18,
     "Name": "Bolsão de gás",
     "Rarity": 0,
     "Price": 0,
     "Weight": 0,
     "Points": 0,
-    "OreType": 16
+    "OreType": 16,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 19,
     "Name": "Rubi",
-    "Rarity": "Alta",
+    "Rarity": 3,
     "Price": 0, // A decidir
     "Weight": 4.1,
     "Points": 0, // A decidir
-    "OreType": 17
+    "OreType": 17,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 20,
     "Name": "Quartzo",
     "Rarity": 3,
     "Price": 0, // A decidir
     "Weight": 2.6,
     "Points": 0, // A decidir
-    "OreType": 18
+    "OreType": 18,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 21,
     "Name": "Esmeralda",
     "Rarity": 3,
     "Price": 0, // A decidir
     "Weight": 2.9,
     "Points": 0, // A decidir
-    "OreType": 19
+    "OreType": 19,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 22,
     "Name": "Diamante",
     "Rarity": 3,
     "Price": 0, // A decidir
     "Weight": 3.5,
     "Points": 0, // A decidir
-    "OreType": 20
+    "OreType": 20,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 23,
     "Name": "Obsidiana",
     "Rarity": 0,
     "Price": 0, // A decidir
     "Weight": 8.0,
     "Points": 0, // A decidir
-    "OreType": 21
+    "OreType": 21,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 24,
     "Name": "Jade",
     "Rarity": 3,
     "Price": 0, // A decidir
     "Weight": 3.3,
     "Points": 0, // A decidir
-    "OreType": 22
+    "OreType": 22,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 25,
     "Name": "Uránio",
     "Rarity": 3,
     "Price": 0, // A decidir
     "Weight": 11.3,
     "Points": 0, // A decidir
-    "OreType": 23
+    "OreType": 23,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 26,
     "Name": "Headium",
     "Rarity": 4,
     "Price": 0, // A decidir
     "Weight": 0.1,
     "Points": 0, // A decidir
-    "OreType": 24
+    "OreType": 24,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 27,
     "Name": "Ruzium",
     "Rarity": 4,
     "Price": 0, // A decidir
     "Weight": 0.1,
     "Points": 0, // A decidir
-    "OreType": 25
+    "OreType": 25,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   },
   {
+    "UniqueID": 28,
     "Name": "Brunium",
     "Rarity": 4,
     "Price": 0, // A decidir
     "Weight": 0.1,
     "Points": 0, // A decidir
-    "OreType": 26
+    "OreType": 26,
+    "Sprite": "Tileset_11",
+    "Stackable": true
   }
 ]
