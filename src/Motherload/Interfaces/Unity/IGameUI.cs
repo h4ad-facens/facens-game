@@ -19,7 +19,22 @@
         /// <summary>
         /// Atualiza o inventário
         /// </summary>
-        void RefreshInventory(); 
+        void RefreshInventory();
+
+        /// <summary>
+        /// Abre o inventário para o player
+        /// </summary>
+        void OpenInventory();
+
+        /// <summary>
+        /// Fecha o inventário
+        /// </summary>
+        void CloseInventory();
+
+        /// <summary>
+        /// Abre ou fecha o inventário
+        /// </summary>
+        void ToggleInventory();
 
         #endregion
     }
