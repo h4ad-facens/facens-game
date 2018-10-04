@@ -34,6 +34,7 @@ namespace Assets.Scripts
             DependencyInjector.Register<IResourceLoader, ResourceLoader>();
             DependencyInjector.Register<IDebugger, Debugger>();
             DependencyInjector.Register<IPlayerPrefs, PlayerPrefs>();
+            DependencyInjector.Register<IGameUI, GameUI>();
         }
 
         /// <summary>
@@ -42,7 +43,9 @@ namespace Assets.Scripts
         /// </summary>
         public static void Load()
         {
-            DependencyInjector.Retrieve<IGameService>().Initilize();
+            DependencyInjector.Retrieve<IGameService>().Initialize();
+            DependencyInjector.Retrieve<IInventory>().Initialize();
+            DependencyInjector.Retrieve<IGameUI>().Initialize();
         }
     }
 }
