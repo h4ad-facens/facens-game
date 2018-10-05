@@ -15,7 +15,9 @@ Os autores deste projeto são:
 - [Camadas](#camadas)
 - [Minérios](#minérios)
 	- [Ligas metálicas](#ligas-metálicas)
-- [Tipos de itens](#tipos-de-itens)
+- [Itens](#itens)
+	- [Tipos](#tipos)
+	- [Atributos](#atributos)
 - [Robô](#robô)
 	- [Brocas](#brocas)
 	- [Motores](#motores)
@@ -96,7 +98,9 @@ A seguir, a tabela com todas as ligas:
 | Bronze         | Média         | A decidir     | x3 Cobres + x1 Estanho  |
 | Aço            | Alta          | A decidir     | x1 Ferro + x1 Carvão    |
 
-## Tipos de itens
+## Itens
+
+### Tipos
 
 A seguir, serão os tipos de itens que o jogo terá.
 
@@ -109,6 +113,35 @@ A seguir, serão os tipos de itens que o jogo terá.
 | 4         | Radiadores     |
 | 5         | Tanque         |
 | 6         | Armazenamento  |
+
+>Todo item necessita de um tipo, caso não saiba o que colocar, apenas coloque nenhum (0).
+
+### Atributos
+
+A seguir, os atributos possíveis nos itens do jogo.
+
+| Key            | Deve ser usado em     | Descrição                                       |
+|:--------------:|:---------------------:|:-----------------------------------------------:|
+| Weight         | Qualquer item         | Define o peso do item                           |
+| Amount         | * Não deve ser usado  | Define o peso do item                           |
+| Stackable      | Qualquer item         | Diz se o item é empilhavel                      |
+| Sprite         | Qualquer item         | A imagem do item no jogo                        |
+| OreType        | Minério               | Diz qual o tipo de minério                      |
+| VelocityMining | Broca                 | Define a velocidade de mineração                |
+| Rarity         | Minério               | Define a raridade do minério                    |
+| Points         | Qualquer item         | Define a quantidade pontos ganhos ao ser obtido |
+| Price          | Tipos de 1-6          | Diz o preço do item para ser comprado           |
+| Damage         | Qualquer item         | Define a quantidade dano recebido ao ser obtido |
+
+>Possivelmente OreType será retirado para suportar melhor uma minérios serem adicionados dinamicamente
+
+Lembrando que a Key dos atributos é case-sensitive, então use exatamente da forma que está na tabela.
+
+Os valores de cada Key deve sempre ser uma string!
+
+
+>* : É restrito apenas para o jogo atribuir, ele é usado para definir a quantidade de itens no inventário
+
 
 ## Robô
 
