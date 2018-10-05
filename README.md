@@ -21,6 +21,7 @@ Os autores deste projeto são:
 - [Robô](#robô)
 	- [Brocas](#brocas)
 	- [Motores](#motores)
+	- [Casco](#casco)
 	- [Tanque de combustivel](#tanque-de-combustivel)
 	- [Armazenamento](#armazenamento)
 	- [Radiadores](#radiadores)
@@ -193,6 +194,21 @@ A seguir, os tipos de motor que serão possiveis de comprar.
 > Cavalos calculados ao multiplicar o peso do minério mais leve em uma camada pelo espaço de armazenamento do mesmo nível.
 
 > Cada cavalo de potência carrega 1 kg de minério.
+
+### Casco
+
+A seguir, tipos de casco que aumentam a vida do jogador.
+
+| Material    | Vida       | Custo      |
+|:-----------:|:----------:|:----------:|
+| *Cobre*     | 28         | Nenhum     |
+| Bronze      | 50         | A decidir  |
+| Ferro       | 70         | A decidir  |
+| Tungstenio  | 90         | A decidir  |
+| Titânio     | 120        | A decidir  |
+| Rubi        | 150        | A decidir  |
+| Diamante    | 170        | A decidir  |
+| Jade        | 200        | A decidir  |
 
 ### Tanque de combustivel
 
