@@ -133,15 +133,11 @@ A seguir, os atributos possíveis nos itens do jogo.
 | Price          | Tipos de 1-6          | Diz o preço do item para ser comprado           |
 | Damage         | Qualquer item         | Define a quantidade dano recebido ao ser obtido |
 
+Lembrando que a Key dos atributos é case-sensitive, então use exatamente da forma que está na tabela e os valores de cada Key deve sempre ser uma string!
+
+>\* É restrito apenas para o jogo atribuir, ele é usado para definir a quantidade de itens no inventário
+
 >Possivelmente OreType será retirado para suportar melhor uma minérios serem adicionados dinamicamente
-
-Lembrando que a Key dos atributos é case-sensitive, então use exatamente da forma que está na tabela.
-
-Os valores de cada Key deve sempre ser uma string!
-
-
->* : É restrito apenas para o jogo atribuir, ele é usado para definir a quantidade de itens no inventário
-
 
 ## Robô
 
