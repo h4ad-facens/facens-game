@@ -17,7 +17,7 @@ namespace Assets.Scripts.UI.Buttons
         private IGameUI m_GameUI;
 
         #endregion
-
+        
         #region Unity
 
         /// <summary>
@@ -35,7 +35,10 @@ namespace Assets.Scripts.UI.Buttons
         /// <summary>
         /// Método que fecha o inventário
         /// </summary>
-        public void CloseInventory() => m_GameUI.CloseInventory();
+        public void OnCloseInventory()
+        {
+            m_GameUI.CloseInventory();
+        }
 
         #endregion
     }

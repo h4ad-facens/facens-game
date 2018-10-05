@@ -58,6 +58,8 @@ namespace Assets.Scripts.Services
             InventorySlotsPanel = objects.FirstOrDefault(g => g.name == "Slots Panel");
             
             Inventory = DependencyInjector.Retrieve<IInventory>();
+
+            RefreshInventory();
         }
 
         #endregion
