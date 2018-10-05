@@ -15,6 +15,7 @@ Os autores deste projeto são:
 - [Camadas](#camadas)
 - [Minérios](#minérios)
 	- [Ligas metálicas](#ligas-metálicas)
+- [Tipos de itens](#tipos-de-itens)
 - [Robô](#robô)
 	- [Brocas](#brocas)
 	- [Motores](#motores)
@@ -90,13 +91,24 @@ Essas ligas serão melhores que ambos os minérios e possuirá um preço maior q
 
 A seguir, a tabela com todas as ligas:
 
-| Liga metálica  | Preciosidade  | Preço         | Formula               |
-|:--------------:|:-------------:|:-------------:|:---------------------:|
+| Liga metálica  | Preciosidade  | Preço         | Formula                 |
+|:--------------:|:-------------:|:-------------:|:-----------------------:|
 | Bronze         | Média         | A decidir     | x3 Cobres + x1 Estanho  |
 | Aço            | Alta          | A decidir     | x1 Ferro + x1 Carvão    |
 
-## Moeda
-A moeda do jogo será o Facen (F$).
+## Tipos de itens
+
+A seguir, serão os tipos de itens que o jogo terá.
+
+| Indice    | Tipo           |
+|:---------:|:--------------:|
+| 0         | Nenhum         |
+| 1         | Minério        |
+| 2         | Broca          |
+| 3         | Hull           |
+| 4         | Radiadores     |
+| 5         | Tanque         |
+| 6         | Armazenamento  |
 
 ## Robô
 
@@ -197,6 +209,9 @@ A seguir, os tipos de radiadores disponíveis para o jogador obter:
 | A decidir   |  70%          | A decidir     |
 | A decidir   |  85%          | A decidir     |
 | A decidir   |  95%          | A decidir     |
+
+## Moeda
+A moeda do jogo será o Facen (F$).
 
 ## Construções
 
