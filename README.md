@@ -123,7 +123,7 @@ A seguir, os atributos possíveis nos itens do jogo.
 | Key            | Deve ser usado em     | Descrição                                       |
 |:--------------:|:---------------------:|:-----------------------------------------------:|
 | Weight         | Qualquer item         | Define o peso do item                           |
-| Amount         | * Não deve ser usado  | Define o peso do item                           |
+| Amount         | * Não deve ser usado  | Define a quantidade do item no inventário       |
 | Stackable      | Qualquer item         | Diz se o item é empilhavel                      |
 | Sprite         | Qualquer item         | A imagem do item no jogo                        |
 | OreType        | Minério               | Diz qual o tipo de minério                      |
@@ -135,7 +135,7 @@ A seguir, os atributos possíveis nos itens do jogo.
 
 Lembrando que a Key dos atributos é case-sensitive, então use exatamente da forma que está na tabela e os valores de cada Key deve sempre ser uma string!
 
->\* É restrito apenas para o jogo atribuir, ele é usado para definir a quantidade de itens no inventário
+>(\*) É restrito apenas para o jogo atribuir.
 
 >Possivelmente OreType será retirado para suportar melhor uma minérios serem adicionados dinamicamente
 
