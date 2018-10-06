@@ -133,6 +133,9 @@ A seguir, os atributos possíveis nos itens do jogo.
 | Points         | Qualquer item         | Define a quantidade pontos ganhos ao ser obtido |
 | Price          | Tipos de 1-6          | Diz o preço do item para ser comprado           |
 | Damage         | Qualquer item         | Define a quantidade dano recebido ao ser obtido |
+| HorsePower     | Motor                 | Define o poder do motor                         |
+| Capacity       | Tanque                | Define a capacidade do tanque de combustivel    |
+| Size           | Armazenamento         | Define o tamanho do espaço de armazenamento     |
 
 Lembrando que a Key dos atributos é case-sensitive, então use exatamente da forma que está na tabela e os valores de cada Key deve sempre ser uma string!
 
