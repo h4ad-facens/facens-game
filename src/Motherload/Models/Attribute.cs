@@ -32,6 +32,41 @@
         /// </summary>
         public static readonly string ORETYPE = "OreType";
 
+        /// <summary>
+        /// Key para o atributo de velocidade de mineração.
+        /// </summary>
+        public static readonly string VELOCITY_MINING = "VelocityMining";
+
+        /// <summary>
+        /// Key para o atributo da potencia do motor.
+        /// </summary>
+        public static readonly string HORSE_POWER = "HorsePower";
+
+        /// <summary>
+        /// Key para o atributo de vcapacidade.
+        /// </summary>
+        public static readonly string CAPACITY = "Capacity";
+
+        /// <summary>
+        /// Key para o atributo de tamanho.
+        /// </summary>
+        public static readonly string SIZE = "Size";
+        
+        /// <summary>
+        /// Key para o atributo de efetividade.
+        /// </summary>
+        public static readonly string EFFECTIVENESS = "Effectiveness";
+
+        /// <summary>
+        /// Key para o atributo de vida.
+        /// </summary>
+        public static readonly string HEALTH = "Health";
+
+        /// <summary>
+        /// Key para o atributo "padrão".
+        /// </summary>
+        public static readonly string DEFAULT = "Default";
+
         #endregion
 
         #region Properties
