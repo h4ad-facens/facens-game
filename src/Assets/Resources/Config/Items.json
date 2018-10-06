@@ -240,7 +240,7 @@
     "Attributes": [
     	{ "Key": "Sprite", "Value": "Tileset_11" },
     	{ "Key": "OreType", "Value": "16" },
-    	{ "Key" : "Damage", "Value": "1000" }
+    	{ "Key": "Damage", "Value": "1000" }
     ]
   },
   {
@@ -381,6 +381,588 @@
     	{ "Key": "Weight", "Value": "0.1" },
     	{ "Key": "Points", "Value": "0" },
     	{ "Key": "OreType", "Value": "26" }
+    ]
+  },
+  {
+    "UniqueID": 29,
+    "Name": "Cobre",
+    "Type": "2",
+    "Attributes": [
+    	{ "Key": "Default", "Value": "true" },
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "2.0" },
+    	{ "Key": "VelocityMining", "Value": "28" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 30,
+    "Name": "Bronze",
+    "Type": "2",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "6.0" },
+    	{ "Key": "VelocityMining", "Value": "40" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 31,
+    "Name": "Ferro",
+    "Type": "2",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "6.0" },
+    	{ "Key": "VelocityMining", "Value": "50" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 32,
+    "Name": "Tungstenio",
+    "Type": "2",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "6.4" },
+    	{ "Key": "VelocityMining", "Value": "60" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 33,
+    "Name": "Titânio",
+    "Type": "2",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "9.0" },
+    	{ "Key": "VelocityMining", "Value": "70" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 34,
+    "Name": "Rubi",
+    "Type": "2",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "8.2" },
+    	{ "Key": "VelocityMining", "Value": "80" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 35,
+    "Name": "Diamante",
+    "Type": "2",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "7.0" },
+    	{ "Key": "VelocityMining", "Value": "100" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 36,
+    "Name": "Jade",
+    "Type": "2",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "6.6" },
+    	{ "Key": "VelocityMining", "Value": "120" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 37,
+    "Name": "A vapor",
+    "Type": "7",
+    "Attributes": [
+    	{ "Key": "Default", "Value": "true" },
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "2.0" },
+    	{ "Key": "HorsePower", "Value": "45" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 38,
+    "Name": "Alcool",
+    "Type": "7",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "HorsePower", "Value": "108" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 39,
+    "Name": "Gasolina",
+    "Type": "7",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "6.0" },
+    	{ "Key": "HorsePower", "Value": "143" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 40,
+    "Name": "Eletrica",
+    "Type": "7",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "6.0" },
+    	{ "Key": "HorsePower", "Value": "234" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 41,
+    "Name": "Titânio",
+    "Type": "7",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "10.0" },
+    	{ "Key": "HorsePower", "Value": "286" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 42,
+    "Name": "Rubi",
+    "Type": "7",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "10.0" },
+    	{ "Key": "HorsePower", "Value": "338" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 43,
+    "Name": "Diamante",
+    "Type": "7",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "15.0" },
+    	{ "Key": "HorsePower", "Value": "462" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 44,
+    "Name": "Jade",
+    "Type": "7",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "20.0" },
+    	{ "Key": "HorsePower", "Value": "750" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 45,
+    "Name": "A decidir",
+    "Type": "5",
+    "Attributes": [
+    	{ "Key": "Default", "Value": "true" },
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Capacity", "Value": "15" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 46,
+    "Name": "A decidir",
+    "Type": "5",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Capacity", "Value": "25" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 47,
+    "Name": "A decidir",
+    "Type": "5",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Capacity", "Value": "40" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 48,
+    "Name": "A decidir",
+    "Type": "5",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Capacity", "Value": "60" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 49,
+    "Name": "A decidir",
+    "Type": "5",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Capacity", "Value": "80" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 50,
+    "Name": "A decidir",
+    "Type": "5",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Capacity", "Value": "100" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 51,
+    "Name": "A decidir",
+    "Type": "5",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Capacity", "Value": "120" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 52,
+    "Name": "A decidir",
+    "Type": "5",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Capacity", "Value": "150" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 53,
+    "Name": "Básico",
+    "Type": "6",
+    "Attributes": [
+    	{ "Key": "Default", "Value": "true" },
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Size", "Value": "30" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 54,
+    "Name": "Pequeno",
+    "Type": "6",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Size", "Value": "45" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 55,
+    "Name": "Médio",
+    "Type": "6",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Size", "Value": "65" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 56,
+    "Name": "Grande",
+    "Type": "6",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Size", "Value": "90" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 57,
+    "Name": "Gigante",
+    "Type": "6",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Size", "Value": "110" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 58,
+    "Name": "Enorme",
+    "Type": "6",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Size", "Value": "130" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 59,
+    "Name": "Épico",
+    "Type": "6",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Size", "Value": "140" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 60,
+    "Name": "Lendário",
+    "Type": "6",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Size", "Value": "150" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 61,
+    "Name": "A decidir",
+    "Type": "4",
+    "Attributes": [
+    	{ "Key": "Default", "Value": "true" },
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Effectiveness", "Value": "0.1" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 62,
+    "Name": "A decidir",
+    "Type": "4",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Effectiveness", "Value": "0.25" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 63,
+    "Name": "A decidir",
+    "Type": "4",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Effectiveness", "Value": "0.35" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 64,
+    "Name": "A decidir",
+    "Type": "4",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Effectiveness", "Value": "0.45" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 65,
+    "Name": "A decidir",
+    "Type": "4",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Effectiveness", "Value": "0.55" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 66,
+    "Name": "A decidir",
+    "Type": "4",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Effectiveness", "Value": "0.70" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 67,
+    "Name": "A decidir",
+    "Type": "4",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Effectiveness", "Value": "0.85" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 68,
+    "Name": "A decidir",
+    "Type": "4",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Effectiveness", "Value": "0.95" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 69,
+    "Name": "Cobre",
+    "Type": "3",
+    "Attributes": [
+    	{ "Key": "Default", "Value": "true" },
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "4.0" },
+    	{ "Key": "Health", "Value": "28" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 70,
+    "Name": "Bronze",
+    "Type": "3",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "10.0" },
+    	{ "Key": "Health", "Value": "50" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 71,
+    "Name": "Ferro",
+    "Type": "3",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "12.0" },
+    	{ "Key": "Health", "Value": "70" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 72,
+    "Name": "Tungstenio",
+    "Type": "3",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "13.0" },
+    	{ "Key": "Health", "Value": "90" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 73,
+    "Name": "Titânio",
+    "Type": "3",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "14.0" },
+    	{ "Key": "Health", "Value": "120" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 74,
+    "Name": "Rubi",
+    "Type": "3",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "15.0" },
+    	{ "Key": "Health", "Value": "150" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 75,
+    "Name": "Diamante",
+    "Type": "3",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "20.0" },
+    	{ "Key": "Health", "Value": "170" },
+    	{ "Key": "Price", "Value": "0" }
+    ]
+  },
+  {
+    "UniqueID": 76,
+    "Name": "Jade",
+    "Type": "3",
+    "Attributes": [
+    	{ "Key": "Stackable", "Value": "false" },
+    	{ "Key": "Sprite", "Value": "Tileset_11" },
+    	{ "Key": "Weight", "Value": "25.0" },
+    	{ "Key": "Health", "Value": "200" },
+    	{ "Key": "Price", "Value": "0" }
     ]
   }
 ]
