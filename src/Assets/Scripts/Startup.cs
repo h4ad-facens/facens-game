@@ -46,6 +46,7 @@ namespace Assets.Scripts
             DependencyInjector.Retrieve<IGameService>().Initialize();
             DependencyInjector.Retrieve<IInventory>().Initialize();
             DependencyInjector.Retrieve<IGameUI>().Initialize();
+            DependencyInjector.Retrieve<IPlayer>().Initialize();
         }
     }
 }
