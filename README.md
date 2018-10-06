@@ -136,6 +136,7 @@ A seguir, os atributos possíveis nos itens do jogo.
 | HorsePower     | Motor                 | Define o poder do motor                         |
 | Capacity       | Tanque                | Define a capacidade do tanque de combustivel    |
 | Size           | Armazenamento         | Define o tamanho do espaço de armazenamento     |
+| Health         | Casco                 | Define a quantidade de vida do jogador          |
 
 Lembrando que a Key dos atributos é case-sensitive, então use exatamente da forma que está na tabela e os valores de cada Key deve sempre ser uma string!
 
