@@ -36,6 +36,64 @@
         /// </summary>
         void ToggleInventory();
 
+        #region Player
+
+        /// <summary>
+        /// Retorna a posição no eixo X do jogador
+        /// </summary>
+        /// <returns></returns>
+        float GetPlayerX();
+
+        /// <summary>
+        /// Retorna a posição no eixo Y do jogador
+        /// </summary>
+        /// <returns></returns>
+        float GetPlayerY();
+
+        /// <summary>
+        /// Seta a posição do jogador no eixo X
+        /// </summary>
+        /// <param name="x">Posição no eixo X</param>
+        void SetPlayerX(float x);
+
+        /// <summary>
+        /// Seta a posição do jogador no eixo Y
+        /// </summary>
+        /// <param name="y">Posição no eixo Y</param>
+        void SetPlayerY(float y);
+
+        /// <summary>
+        /// Atualiza a broca do jogador
+        /// </summary>
+        void RefreshItemDrill();
+
+        /// <summary>
+        /// Atualiza o casco do jogador
+        /// </summary>
+        void RefreshItemHull();
+
+        /// <summary>
+        /// Atualiza o radiador do jogador
+        /// </summary>
+        void RefreshItemRadiator();
+
+        /// <summary>
+        /// Atualiza o tanque do jogador
+        /// </summary>
+        void RefreshItemTank();
+
+        /// <summary>
+        /// Atualiza o armazenamento do jogador
+        /// </summary>
+        void RefreshItemCargo();
+
+        /// <summary>
+        /// Atualiza o motor do jogador
+        /// </summary>
+        void RefreshItemEngine();
+
+        #endregion
+
         #endregion
     }
 }
