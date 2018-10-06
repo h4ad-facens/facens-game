@@ -41,18 +41,48 @@ namespace Motherload.Services
         private IGameService m_GameService;
 
         #endregion
-        
+
         #region Stats
 
         /// <summary>
         /// Implementação de <see cref="IPlayer.Health"/>
         /// </summary>
-        public float Health { get; set; }
+        private float m_Health;
+        public float Health
+        {
+            get => m_Health;
+            set
+            {
+                if(value <= 0)
+                    m_GameUI.EndGame();
+
+                var maxHealth = Hull.GetAttributeValue<float>(Attribute.HEALTH);
+
+                m_Health = value > maxHealth ? maxHealth : value;
+
+                m_GameUI.LifeBar?.Refresh(m_Health / maxHealth);
+            }
+        }
 
         /// <summary>
         /// Implementação de <see cref="IPlayer.Fuel"/>
         /// </summary>
-        public float Fuel { get; set; }
+        private float m_Fuel;
+        public float Fuel
+        {
+            get => m_Fuel;
+            set
+            {
+                if (value <= 0)
+                    m_GameUI.EndGame();
+
+                var maxFuel = Tank.GetAttributeValue<float>(Attribute.CAPACITY);
+
+                m_Fuel = value > maxFuel ? maxFuel : value;
+
+                m_GameUI.FuelBar?.Refresh(m_Fuel / maxFuel);
+            }
+        }
 
         /// <summary>
         /// Implementação de <see cref="IPlayer.PositionX"/>
@@ -193,8 +223,6 @@ namespace Motherload.Services
         /// </summary>
         private void GeneratePlayer()
         {
-            Health = 100;
-            Fuel = 100;
             PositionX = 0;
             PositionY = -4.5f;
 
@@ -204,6 +232,9 @@ namespace Motherload.Services
             Hull = m_GameService.Items.First(o => (int)o.Type == (int)ItemTypes.HULL && o.HasKey(Attribute.DEFAULT));
             Cargo = m_GameService.Items.First(o => (int)o.Type == (int)ItemTypes.CARGO && o.HasKey(Attribute.DEFAULT));
             Tank = m_GameService.Items.First(o => (int)o.Type == (int)ItemTypes.TANK && o.HasKey(Attribute.DEFAULT));
+
+            Health = 100;
+            Fuel = 100;
 
             SavePlayer();
         }
@@ -233,13 +264,7 @@ namespace Motherload.Services
                 GeneratePlayer();
 
             var informations = JsonConvert.DeserializeObject<Dictionary<string, string>>(m_PlayerPrefs.GetString(PLAYER_PREFS_KEY));
-
-            if (informations.TryGetValue(nameof(Health), out var health))
-                Health = float.Parse(health);
-
-            if (informations.TryGetValue(nameof(Fuel), out var fuel))
-                Fuel = float.Parse(fuel);
-
+            
             if (informations.TryGetValue(nameof(PositionX), out var positionX))
                 PositionX = float.Parse(positionX);
 
@@ -263,6 +288,12 @@ namespace Motherload.Services
 
             if (informations.TryGetValue(nameof(Tank), out var tankUid))
                 Tank = m_GameService.Items.Find(o => o.UniqueID == int.Parse(tankUid));
+
+            if (informations.TryGetValue(nameof(Health), out var health))
+                Health = float.Parse(health);
+
+            if (informations.TryGetValue(nameof(Fuel), out var fuel))
+                Fuel = float.Parse(fuel);
         }
 
         /// <summary>

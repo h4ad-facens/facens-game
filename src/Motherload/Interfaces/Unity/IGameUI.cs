@@ -5,6 +5,20 @@
     /// </summary>
     public interface IGameUI
     {
+        #region Properties
+
+        /// <summary>
+        /// Atualiza a barra de vida do jogador
+        /// </summary>
+        IStatsbar LifeBar { get; set; }
+
+        /// <summary>
+        /// Atualiza a barra de combustivel do jogador
+        /// </summary>
+        IStatsbar FuelBar { get; set; }
+
+        #endregion
+
         #region Construtors
 
         /// <summary>
@@ -15,6 +29,11 @@
         #endregion
 
         #region Methods
+
+        /// <summary>
+        /// Fim de jogo
+        /// </summary>
+        void EndGame();
 
         /// <summary>
         /// Atualiza o inventário

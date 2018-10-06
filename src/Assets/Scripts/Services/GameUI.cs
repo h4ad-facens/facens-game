@@ -2,8 +2,10 @@
 using Motherload.Factories;
 using Motherload.Interfaces;
 using Motherload.Interfaces.Unity;
+using Motherload.Models;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.Services
 {
@@ -63,10 +65,34 @@ namespace Assets.Scripts.Services
         /// </summary>
         private GameObject Player { get; set; }
         
+        /// <summary>
+        /// Barra de vida do jogador
+        /// </summary>
+        private Image Lifebar;
+
+        /// <summary>
+        /// Barra de combustivel do jogador
+        /// </summary>
+        private Image Fuelbar;
+
+        #endregion
+
+        #region Public Properties
+
+        /// <summary>
+        /// Implementação de <see cref="IGameUI.LifeBar"/>
+        /// </summary>
+        public IStatsbar LifeBar { get; set; }
+
+        /// <summary>
+        /// Implementação de <see cref="IGameUI.FuelBar"/>
+        /// </summary>
+        public IStatsbar FuelBar { get; set; }
+
         #endregion
 
         #region Construtors
-        
+
         /// <summary>
         /// Implementação de <see cref="IGameUI.Initialize"/>
         /// </summary>
@@ -78,7 +104,7 @@ namespace Assets.Scripts.Services
             InventorySlotsPanel = objects.FirstOrDefault(g => g.name == "Slots Panel");
             PlayerSlots = objects.FirstOrDefault(g => g.name == "Player Slots");
             Player = objects.FirstOrDefault(g => g.name == "Player");
-
+            
             m_Inventory = DependencyInjector.Retrieve<IInventory>();
             m_Player = DependencyInjector.Retrieve<IPlayer>();
 
@@ -88,6 +114,14 @@ namespace Assets.Scripts.Services
         #endregion
 
         #region Public Methods
+
+        /// <summary>
+        /// Implementação de <see cref="IGameUI.EndGame"/>
+        /// </summary>
+        public void EndGame()
+        {
+            // TODO: Implentar método de fim de jogo
+        }
 
         /// <summary>
         /// Implementação de <see cref="IGameUI.RefreshInventory"/>
@@ -242,7 +276,7 @@ namespace Assets.Scripts.Services
 
             PlayerItemSlots[2].Item = m_Player.Engine;
         }
-
+        
         #endregion
 
         #endregion
