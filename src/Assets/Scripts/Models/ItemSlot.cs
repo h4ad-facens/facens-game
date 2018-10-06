@@ -26,12 +26,12 @@ namespace Assets.Scripts.Models
 
                 if (m_Item == null)
                 {
-                    GetComponent<Image>().enabled = false;
+                    image.enabled = false;
                 }
                 else
                 {
-                    GetComponent<Image>().sprite = new AtlasLoader("Tileset").getAtlas(m_Item.GetAttributeValue<string>(Attribute.SPRITE));
-                    GetComponent<Image>().enabled = true;
+                    image.sprite = new AtlasLoader("Tileset").getAtlas(m_Item.GetAttributeValue<string>(Attribute.SPRITE));
+                    image.enabled = true;
                 }
             }
 
@@ -42,6 +42,20 @@ namespace Assets.Scripts.Models
         /// </summary>
         [SerializeField]
         Image image;
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Executado a cada validação que a Unity faz
+        /// </summary>
+        private void OnValidate()
+        {
+            if (image == null)
+                image = GetComponent<Image>();
+        }
+
 
         #endregion
     }
