@@ -150,9 +150,9 @@ namespace Motherload.Services
                 LayersFilePath = layersFilePath,
                 LayerTilesFolderPath = layerTilesPath,
                 ItemsFilePath = itemsFilePath,
-                MaxSpawnWorldHeight = -6,
-                MaxSpawnWorldX = 84,
-                MinSpawnWorldX = -52
+                MaxSpawnWorldHeight = 60,
+                MaxSpawnWorldX = 64,
+                MinSpawnWorldX = -32
         }, Formatting.None);
 
             // Salva as configurações serializadas no PlayerPrefs

@@ -41001,6 +41001,7 @@ GameObject:
   - component: {fileID: 517932746}
   - component: {fileID: 517932747}
   - component: {fileID: 517932748}
+  - component: {fileID: 517932749}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -41022,9 +41023,6 @@ MonoBehaviour:
   JetpackForce: 25
   Speed: 15
   MaxSpeed: 30
-  MaxHeight: 60
-  MaxWidthLeft: -32
-  MaxWidthRight: 64
 --- !u!212 &517932742
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -41167,6 +41165,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ToggleInventory: 101
+--- !u!114 &517932749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 517932740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68da2f5e5201e5943a5f0dd565f82003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &546005765
 GameObject:
   m_ObjectHideFlags: 0
