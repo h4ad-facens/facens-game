@@ -63,7 +63,7 @@ namespace Motherload.Models
         public string ItemsFilePath { get; set; }
 
         /// <summary>
-        /// Altura máxima em que será gerado o mundo
+        /// Altura máxima em que o jogador poderá voar
         /// </summary>
         public int MaxSpawnWorldHeight { get; set; }
 
