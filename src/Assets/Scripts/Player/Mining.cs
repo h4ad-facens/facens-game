@@ -90,7 +90,10 @@ namespace Assets.Scripts.Player
         {
             var pos = new Vector3Int((int)Math.Floor(transform.position.x) + offsetX, (int)Math.Floor(transform.position.y) + offsetY, 0);
 
-            if (m_GM.Configurations.MaxSpawnWorldHeight < transform.position.y && (pos.x < -1 || pos.x > 5))
+            if (Math.Floor(transform.position.y) > -5)
+                return;
+
+            if (Math.Floor(transform.position.y) > -7 && (pos.x < -1 || pos.x > 5))
                 return;
 
             var tile = m_World.GetTile<Oretile>(pos);
