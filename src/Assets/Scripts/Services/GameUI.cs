@@ -128,8 +128,7 @@ namespace Assets.Scripts.Services
         /// </summary>
         public void RefreshInventory()
         {
-            if (ItemSlots == null)
-                ItemSlots = InventorySlotsPanel.GetComponentsInChildren<ItemSlot>();
+            ItemSlots = InventorySlotsPanel.GetComponentsInChildren<ItemSlot>();
 
             var i = 0;
             for (; i < ItemSlots.Length && i < m_Inventory.InventoryItems.Count; i++)
@@ -216,8 +215,7 @@ namespace Assets.Scripts.Services
         /// </summary>
         public void RefreshItemDrill()
         {
-            if (PlayerItemSlots == null)
-                PlayerItemSlots = PlayerSlots.GetComponentsInChildren<ItemSlot>();
+            PlayerItemSlots = PlayerSlots.GetComponentsInChildren<ItemSlot>();
             
             // TODO: Implementar troca de Skin do jogador
         }
@@ -227,8 +225,7 @@ namespace Assets.Scripts.Services
         /// </summary>
         public void RefreshItemHull()
         {
-            if(PlayerItemSlots == null)
-                PlayerItemSlots = PlayerSlots.GetComponentsInChildren<ItemSlot>();
+            PlayerItemSlots = PlayerSlots.GetComponentsInChildren<ItemSlot>();
 
             PlayerItemSlots[1].Item = m_Player.Hull;
         }
@@ -238,8 +235,7 @@ namespace Assets.Scripts.Services
         /// </summary>
         public void RefreshItemRadiator()
         {
-            if (PlayerItemSlots == null)
-                PlayerItemSlots = PlayerSlots.GetComponentsInChildren<ItemSlot>();
+            PlayerItemSlots = PlayerSlots.GetComponentsInChildren<ItemSlot>();
 
             PlayerItemSlots[4].Item = m_Player.Radiator;
         }
@@ -249,8 +245,7 @@ namespace Assets.Scripts.Services
         /// </summary>
         public void RefreshItemTank()
         {
-            if (PlayerItemSlots == null)
-                PlayerItemSlots = PlayerSlots.GetComponentsInChildren<ItemSlot>();
+            PlayerItemSlots = PlayerSlots.GetComponentsInChildren<ItemSlot>();
 
             PlayerItemSlots[3].Item = m_Player.Tank;
         }
@@ -260,8 +255,7 @@ namespace Assets.Scripts.Services
         /// </summary>
         public void RefreshItemCargo()
         {
-            if (PlayerItemSlots == null)
-                PlayerItemSlots = PlayerSlots.GetComponentsInChildren<ItemSlot>();
+            PlayerItemSlots = PlayerSlots.GetComponentsInChildren<ItemSlot>();
 
             PlayerItemSlots[0].Item = m_Player.Cargo;
         }
@@ -271,8 +265,7 @@ namespace Assets.Scripts.Services
         /// </summary>
         public void RefreshItemEngine()
         {
-            if (PlayerItemSlots == null)
-                PlayerItemSlots = PlayerSlots.GetComponentsInChildren<ItemSlot>();
+            PlayerItemSlots = PlayerSlots.GetComponentsInChildren<ItemSlot>();
 
             PlayerItemSlots[2].Item = m_Player.Engine;
         }
